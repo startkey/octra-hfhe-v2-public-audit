@@ -1,0 +1,59 @@
+# tomismeta/octra-sqlite triage 2026-07-13T06:55:19Z
+head=3fc6082d034cc99e16a15bb694098868757393b4
+commits=115
+## worktree target/challenge grep counts
+octC5eR9pLGKbpzTbDgHowkFt8HW7LZYb2gzehzxHamxuAZ files=0
+secret.ct files=0
+hfhe-challenge files=0
+master_seed files=0
+pvac.prf.r files=0
+pvac_hfhe files=0
+2075336875322032268 files=0
+## git history target/challenge grep
+octC5eR9pLGKbpzTbDgHowkFt8HW7LZYb2gzehzxHamxuAZ history_hits=0
+secret.ct history_hits=0
+hfhe-challenge history_hits=0
+master_seed history_hits=0
+pvac.prf.r history_hits=0
+pvac_hfhe history_hits=0
+2075336875322032268 history_hits=0
+## wallet format relevant snippets
+src/client/wallet.rs:22:    pub(super) priv_field: Option<String>,
+src/client/wallet.rs:24:    pub(super) private_key_b64: Option<String>,
+src/client/wallet.rs:32:    #[serde(rename = "keyPair")]
+src/client/wallet.rs:49:    pub(crate) private_key_b64: String,
+src/client/wallet.rs:58:            .field("private_key_b64", &"<redacted>")
+src/client/wallet.rs:67:        self.private_key_b64.zeroize();
+src/client/wallet.rs:118:        wallet.priv_field,
+src/client/wallet.rs:121:        wallet.private_key_b64,
+src/client/wallet.rs:128:                "wallet {} is missing private_key_b64/priv or keyPair.secretKey",
+src/client/wallet.rs:166:        address: address_from_public_key(&public_key_bytes),
+src/client/wallet.rs:167:        private_key_b64: general_purpose::STANDARD.encode(key.to_bytes()),
+src/client/wallet.rs:180:            "private key must decode to a 32-byte seed or 64-byte keypair",
+src/client/wallet.rs:225:        candidates.push(cwd.join("wallet.json"));
+src/client/wallet.rs:226:        candidates.push(cwd.join(".octra").join("wallet.json"));
+src/client/wallet.rs:229:        candidates.push(home.join(".octra").join("wallet.json"));
+src/client/wallet.rs:230:        candidates.push(home.join(".octra").join("devnet-wallet.json"));
+src/client/wallet.rs:272:fn address_from_public_key(public_key: &[u8; 32]) -> String {
+src/client/wallet.rs:293:            material.private_key_b64,
+src/client/wallet.rs:316:                .decode(&material.private_key_b64)
+src/client/wallet.rs:333:            "keyPair": {
+src/client/wallet.rs:346:        assert_eq!(loaded.private_key_b64, material.private_key_b64);
+README.md:133:octra-sqlite wallet attach ./wallet.json
+README.md:134:printf '%s' "$OCTRA_PRIVATE_KEY_B64" | octra-sqlite wallet import --stdin --output ./wallet.json
+README.md:137:Supported wallet inputs are an official Octra wallet-generator `wallet.json`
+README.md:141:official `wallet.json`, attach plaintext wallet JSON, or import the private key.
+CHANGELOG.md:129:  `wallet.json` from the official Octra wallet generator, attach existing
+CHANGELOG.md:133:  (`keyPair.publicKey` / `keyPair.secretKey`) and preserved that file shape when
+docs/public-surface.md:37:as guided `new`: import `wallet.json` from the official Octra wallet generator,
+docs/public-surface.md:84:then local `wallet.json` candidates. Wallet JSON may use the official Octra
+docs/headless.md:13:  "private_key_b64": "BASE64_PRIVATE_KEY",
+docs/headless.md:24:octra-sqlite wallet attach /secure/path/wallet.json
+docs/headless.md:28:official Octra wallet generator and copy the saved `wallet.json` into the local
+docs/headless.md:35:printf '%s' "$OCTRA_PRIVATE_KEY_B64" | octra-sqlite wallet import --stdin --output /secure/path/wallet.json
+docs/headless.md:43:(`address` plus `keyPair.publicKey` / `keyPair.secretKey`) or octra-sqlite's
+docs/headless.md:44:minimal normalized shape (`address`, `private_key_b64`, `public_key_b64`).
+docs/headless.md:51:chmod 600 /secure/path/wallet.json
+docs/headless.md:52:octra-sqlite setup --yes --wallet /secure/path/wallet.json --network devnet
+docs/headless.md:60:sudo install -m 0640 -o root -g octra-sqlite wallet.json /etc/octra-sqlite/wallet.json
+docs/headless.md:76:  "wallet": "/etc/octra-sqlite/wallet.json",

@@ -1,0 +1,9 @@
+# HFHE v2 R-component dependency audit
+sample_files=44
+sample_domains={"pvac.prf.r.1": 44}
+derive_aes_key_uses_sk_prf_k=1
+prf_R_requires_r1_r2_r3=1
+toeplitz_stream_uses_secret_derived_key=1
+seckey_format_contains_prf_k=1
+published_domains_only_r1=1
+assessment=published R1 rows do not expose the complete mask derivation: R2/R3 and the secret-keyed Toeplitz stream remain unavailable

@@ -1,0 +1,11 @@
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/artifact_wire_audit.out:assessment=wire format is well-formed wrapped-v2; no parser/shape leak detected
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/candidate_uncheckable_demo.out:assessment=candidate-check oracle absent for these algebraic public equations
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/layer_seed_audit.out:assessment=no nonce/ztag reuse or ztag derivation mismatch detected
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_binding_full_audit.out:assessment=all sample filenames, metadata, public_T, nonce, and ztag bind exactly to their named secret.ct layer/slot
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_cross_row_distance_audit.out:assessment=no detected same-index A-row reuse, complement, or extreme distance shortcut
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_cross_sample_audit.out:assessment=no detected cross-file y-stream reuse or same-index correlation shortcut
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_deep_audit.out:assessment=no detected repeated-row, rank, low-weight-coordinate, index, or byte-distribution defect
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_domain_nonce_audit.out:assessment=no filename coverage, domain-hash, seed-binding, row0, or derived-nonce anomaly detected
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_feature_bias_audit.out:assessment=no strong y/row-feature coupling detected at conservative z<8 threshold
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/lpn_intra_stream_audit.out:assessment=no detected adjacent A-row reuse/extreme distance or short-lag y periodicity shortcut
+/Users/koala/hfhe_challenge_v2/repro_outputs/20260713_042416/pc_commitment_audit.out:assessment=no PC reuse/default/decode/slot anomaly detected; R_com is absent from wire and defaults to identity after deserialization as expected

@@ -1,0 +1,11 @@
+.DS_Store
+*.log
+*.pid
+*.lock
+*.ct
+*.bin
+github.txt
+*.sqlite
+*.db
+__pycache__/
+.pytest_cache/
