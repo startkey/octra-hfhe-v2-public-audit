@@ -1,0 +1,5 @@
+{
+  "name": "octra-hfhe-v2-public-audit",
+  "description": "Reproducible public-artifact audit and progress notes for Octra HFHE Challenge v2; current result is not recovered.",
+  "topics": ["octra", "hfhe", "lpn", "cryptanalysis", "public-audit", "challenge-v2"]
+}
