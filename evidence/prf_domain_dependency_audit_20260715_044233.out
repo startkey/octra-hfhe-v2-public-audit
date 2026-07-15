@@ -1,0 +1,43 @@
+<stdin>:8: SyntaxWarning: "\(" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\("? A raw string is also an option.
+# PRF/domain dependency audit 2026-07-15T04:42:50.511241+00:00
+
+## pvac_hfhe_cpp/include/pvac/core/types.hpp sha256 25568e31ba962eeb5990ea0c72ea4dfe755af3c19124b618433b488f6bf5966f bytes 5340
+19:     inline constexpr const char* TOEP = "pvac.dom.toeplitz";
+24:     inline constexpr const char* PRF_R1 = "pvac.prf.r.1";
+25:     inline constexpr const char* PRF_R2 = "pvac.prf.r.2";
+26:     inline constexpr const char* PRF_R3 = "pvac.prf.r.3";
+196:     std::array<uint64_t, 4> prf_k;
+
+## pvac_hfhe_cpp/include/pvac/crypto/lpn.hpp sha256 5d85f65e59a620d51fa0798a68ccf1cb4a941f430738bde0bfbe2763a935901a bytes 11714
+10: #include "toeplitz.hpp"
+318:     for (auto x : sk.prf_k) sha256_acc_u64(h, x);
+376: inline Fp prf_R_core(
+404: inline Fp prf_R(const PubKey& pk, const SecKey& sk, const RSeed& seed) {
+405:     Fp r1 = prf_R_core(pk, sk, seed, Dom::PRF_R1);
+406:     Fp r2 = prf_R_core(pk, sk, seed, Dom::PRF_R2);
+407:     Fp r3 = prf_R_core(pk, sk, seed, Dom::PRF_R3);
+412:     Fp r1 = prf_R_core(pk, sk, seed, Dom::PRF_NOISE1);
+413:     Fp r2 = prf_R_core(pk, sk, seed, Dom::PRF_NOISE2);
+414:     Fp r3 = prf_R_core(pk, sk, seed, Dom::PRF_NOISE3);
+
+## pvac_hfhe_cpp/include/pvac/ops/encrypt.hpp sha256 276b779deae5834563ac5f683566a6ebf5f467d68431451886e5443d229aa114 bytes 35411
+344:             sk.prf_k[0], sk.prf_k[1], sk.prf_k[2], sk.prf_k[3],
+690: inline std::vector<Fp> prf_R_slots(const PubKey& pk, const SecKey& sk, const RSeed& seed, size_t slots) {
+693:         R[0] = prf_R(pk, sk, seed);
+702:         R[j] = prf_R(pk, sk, s);
+711:     for (int k = 0; k < 4; k++) sha256_acc_u64(h, sk.prf_k[k]);
+741:         for (int k = 0; k < 4; k++) sha256_acc_u64(h, sk.prf_k[k]);
+767:     auto R = prf_R_slots(pk, sk, L.seed, S);
+851:     auto R = prf_R_slots(pk, sk, L.seed, S);
+
+## pvac_hfhe_cpp/include/pvac/ops/decrypt.hpp sha256 1fc2462617c738664dc3f34cd9ba474c07317abd37cfe84b540e8c3a689a4489 bytes 3752
+55:         cache[lid] = native ? ru_r_slots(sk, L.seed, C.slots) : prf_R_slots(pk, sk, L.seed, C.slots);
+
+## upstream_019380c_files/source/tools/verify_lpn_sample_binding.cpp sha256 2d885444cf571b1e9f513c700f3edde8b0a80443b25c13f8b480f77e307beee7 bytes 6376
+171:         if (sample.dom != "pvac.prf.r.1")
+
+## derived dependency conclusion
+Dom constants define three independent public labels: pvac.prf.r.1, pvac.prf.r.2, pvac.prf.r.3.
+prf_R(pk,sk,seed) calls prf_R_core three times and multiplies r1*r2*r3; decrypt/encrypt use prf_R_slots, not PRF_R1 alone.
+prf_R_core hashes sk.prf_k and mixes the domain into the Toeplitz nonce; therefore public samples bound to pvac.prf.r.1 do not determine pvac.prf.r.2/r.3 without sk.prf_k or equivalent secret-derived material.
+verify_lpn_sample_binding.cpp explicitly rejects samples whose domain is not pvac.prf.r.1, confirming the published sample set is one-domain only.

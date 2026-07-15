@@ -1,0 +1,50 @@
+# git ls-remote refresh 20260715_044233 UTC
+
+## https://github.com/octra-labs/hfhe-challenge.git
+019380c97543620091409b0fbf73a8a773a9a0da refs/heads/main
+08bf879dd9e9aff094e4106ee5d86dde9de12742 refs/tags/v2_fix
+
+## https://github.com/Eienel/hfhe-challenge-eienel.git
+93ff858fb9471d0252cc76092c681daa9f6a1879 refs/heads/claude/hfhe-challenge-v2-8bntzl
+c2897e67bbd511ac50606ec3157b0b7a1adadf81 refs/heads/claude/hfhe-challenge-progress-b6ld5x
+efb24174ac4c24c723b6c5bd99d289f89cf141c6 refs/heads/main
+
+## https://github.com/ifeoluwaaj/hfhe-challenge.git
+08bf879dd9e9aff094e4106ee5d86dde9de12742 refs/tags/v2_fix
+0d08e9622921e5930175a660df0061a65548972f refs/heads/main
+ffed46e744bb17871120fbc7e27102c92896567f refs/heads/hfhe-v2-cryptanalysis
+
+## https://github.com/nxpath/hfhe-challenge.git
+8a8df807bc12858a3076eb2d026f5d0ed1f2eceb refs/heads/main
+
+## https://github.com/tomismeta/octra-sqlite.git
+043a9133f190142f3d4c90c70016713d42e5085f refs/tags/v0.5.2^{}
+0cf20147de2134413aea956c8fe29a04e2defe0d refs/heads/codex/harden-top-10
+17eee87b38f8b04238c2ebf692baaadcabc546f1 refs/tags/v0.2.0^{}
+18921a4828a87ac6d610989d142d22850699b7a6 refs/tags/v0.5.1^{}
+22a8fc863b7ea8f3c2e663d536ae7d1992e1ca44 refs/tags/v0.2.1^{}
+2cc14762e4215224d713c9d15f129e8edf164fbb refs/tags/v0.6.1
+369ab256986656f3c09ecedd8d9c3fb252ec84fa refs/tags/v0.4.0^{}
+36ffa7a6fac08c74c7f8911a30c4c5c9e4ef326d refs/tags/v0.3.1^{}
+372bdffecbb92e667a49032409087d9dc34fb037 refs/heads/codex/upgrade-sqlite-0.6.0
+3b3216ef9f320fb5dba4e950d323ffc9447fd064 refs/tags/v0.3.1
+3c998f08ed7b559c3683c6518df42afbde0e0b79 refs/tags/v0.2.1
+3cce40f213d0c628835d51b741f66ddc8de576ef refs/tags/v0.6.0
+3fc6082d034cc99e16a15bb694098868757393b4 refs/tags/v0.6.0^{}
+401fbd7ece51212dbb9a43640a1a7ea3fd7ff6b0 refs/tags/v0.4.0
+58611464229370a4182ad48aed55053245d44b0c refs/tags/v0.5.1
+6a1d4f417450a8a852b00496e50b7ccdd5ff0f5a refs/tags/v0.3.0
+73472497b35f7dfe79506e8b8a13a7f73bd3f917 refs/tags/v0.3.0^{}
+842e75216a463a39a46ddc11040de83465bb1e45 refs/tags/v0.3.3^{}
+87c5bba4e25501778b331b90b77e8a646d60b264 refs/tags/v0.3.3
+8808aad7683733f4f60bd3151c4c1358f4ba3c46 refs/tags/v0.3.4
+8d66acb6e64a444b214e84125c4dfae54b737d19 refs/heads/main
+8d66acb6e64a444b214e84125c4dfae54b737d19 refs/tags/v0.6.1^{}
+907294a12e3df021220179d64470c55c241481c9 refs/tags/v0.3.2
+92677e54a22b524b26a62b7889ced6d3078ccc93 refs/tags/v0.2.0
+95105c57a2949f0ae03a71907f2da20d23f415f0 refs/tags/v0.3.2^{}
+a311e91172168bacc3047814a6a5c874482db46c refs/tags/v0.3.4^{}
+b4280ede0dfa715a874c7ed0cc60094e6755f70c refs/tags/v0.5.0
+c16a36e234f272bd95af7187ae7df1ce7c060ed9 refs/tags/v0.5.0^{}
+f159f5508049b941899680075daea3038299a94b refs/tags/v0.1.0
+f6a028f3c1d906d358cf35cdbafef2725ff755d2 refs/tags/v0.5.2
