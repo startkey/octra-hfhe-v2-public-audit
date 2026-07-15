@@ -1,0 +1,52 @@
+# official update reason probe 20260715_064510
+## lsremote pvac_hfhe_cpp
+071b0e909c119de815e284b347c4bd979cb59ef3 refs/heads/main
+
+## hfhe challenge full refs
+019380c97543620091409b0fbf73a8a773a9a0da	HEAD
+019380c97543620091409b0fbf73a8a773a9a0da refs/heads/main
+08bf879dd9e9aff094e4106ee5d86dde9de12742 refs/tags/v2_fix
+3cdab3379f7c72cd9d85e67c88da84d5d05f5bd8 refs/pull/4/head
+44886d962d8df2dc0849cc55d476cb571561e58d refs/pull/2/head
+832890554fff9794871ebd462cf7b917e6222eb5 refs/pull/1/head
+874a92a5417b98a96f9fd1aaff3d218237af1383 refs/pull/1/merge
+c9e8e4586e83f1f65af474a5070fd50109fc795f refs/pull/3/merge
+ffed46e744bb17871120fbc7e27102c92896567f refs/pull/3/head
+
+## GitHub API issue/PR/comment metadata 2026-07-15T06:46:12.557693+00:00
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge
+{'full_name': 'octra-labs/hfhe-challenge', 'pushed_at': '2026-07-11T08:49:01Z', 'updated_at': '2026-07-15T06:19:04Z', 'default_branch': 'main', 'open_issues_count': 2, 'forks_count': 28, 'stargazers_count': 30}
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge/issues?state=all&per_page=20
+count 4
+{'type': None, 'created_at': '2026-07-10T17:46:08Z', 'updated_at': '2026-07-10T17:46:22Z', 'number': 4, 'state': 'closed', 'title': 'Enhance/robust tools', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/4', 'commit_id': None, 'event': None, 'user': 'nxpath'}
+{'type': None, 'created_at': '2026-07-10T16:38:06Z', 'updated_at': '2026-07-12T06:03:32Z', 'number': 3, 'state': 'open', 'title': 'HFHE v2 cryptanalysis: security analysis and tools', 'body': '## HFHE v2 Cryptanalysis — Exhaustive Attack Report\n\n**Status: UNDEFEATED — No path to plaintext recovery found with current public techniques.**\n\n### Summary\n\n40+ attack tests across every known category. Found & fixed critical S-box CNF b...', 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/3', 'commit_id': None, 'event': None, 'user': 'ifeoluwaaj'}
+{'type': None, 'created_at': '2026-07-10T10:08:33Z', 'updated_at': '2026-07-10T10:08:58Z', 'number': 2, 'state': 'closed', 'title': 'Claude/hfhe challenge v2 8bntzl', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/2', 'commit_id': None, 'event': None, 'user': 'Eienel'}
+{'type': None, 'created_at': '2026-07-10T08:25:43Z', 'updated_at': '2026-07-10T08:25:43Z', 'number': 1, 'state': 'open', 'title': 'Rename secret.ct to Love.ct', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/1', 'commit_id': None, 'event': None, 'user': 'TonyLegend-77'}
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge/pulls?state=all&per_page=20
+count 4
+{'type': None, 'created_at': '2026-07-10T17:46:08Z', 'updated_at': '2026-07-10T17:46:22Z', 'number': 4, 'state': 'closed', 'title': 'Enhance/robust tools', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/4', 'commit_id': None, 'event': None, 'user': 'nxpath'}
+{'type': None, 'created_at': '2026-07-10T16:38:06Z', 'updated_at': '2026-07-12T06:03:32Z', 'number': 3, 'state': 'open', 'title': 'HFHE v2 cryptanalysis: security analysis and tools', 'body': '## HFHE v2 Cryptanalysis — Exhaustive Attack Report\n\n**Status: UNDEFEATED — No path to plaintext recovery found with current public techniques.**\n\n### Summary\n\n40+ attack tests across every known category. Found & fixed critical S-box CNF b...', 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/3', 'commit_id': None, 'event': None, 'user': 'ifeoluwaaj'}
+{'type': None, 'created_at': '2026-07-10T10:08:33Z', 'updated_at': '2026-07-10T10:08:58Z', 'number': 2, 'state': 'closed', 'title': 'Claude/hfhe challenge v2 8bntzl', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/2', 'commit_id': None, 'event': None, 'user': 'Eienel'}
+{'type': None, 'created_at': '2026-07-10T08:25:43Z', 'updated_at': '2026-07-10T08:25:43Z', 'number': 1, 'state': 'open', 'title': 'Rename secret.ct to Love.ct', 'body': None, 'html_url': 'https://github.com/octra-labs/hfhe-challenge/pull/1', 'commit_id': None, 'event': None, 'user': 'TonyLegend-77'}
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge/issues/comments?per_page=20
+count 0
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge/pulls/comments?per_page=20
+count 0
+
+URL https://api.github.com/repos/octra-labs/hfhe-challenge/events?per_page=20
+count 19
+{'type': 'WatchEvent', 'created_at': '2026-07-13T12:38:07Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'octralex'}
+{'type': 'WatchEvent', 'created_at': '2026-07-12T00:33:31Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'talented634'}
+{'type': 'WatchEvent', 'created_at': '2026-07-11T22:53:15Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'asbryx'}
+{'type': 'WatchEvent', 'created_at': '2026-07-11T15:38:00Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'AminMstlih'}
+{'type': 'PushEvent', 'created_at': '2026-07-11T08:49:02Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'lambda0xE'}
+{'type': 'WatchEvent', 'created_at': '2026-07-11T08:08:00Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'brighton-ifaya'}
+{'type': 'ForkEvent', 'created_at': '2026-07-11T07:41:01Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'SNAKBILLION'}
+{'type': 'ForkEvent', 'created_at': '2026-07-11T07:32:56Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'vansham'}
+{'type': 'WatchEvent', 'created_at': '2026-07-11T06:13:59Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'ryyos'}
+{'type': 'PushEvent', 'created_at': '2026-07-11T03:35:27Z', 'updated_at': None, 'number': None, 'state': None, 'title': None, 'body': None, 'html_url': None, 'commit_id': None, 'event': None, 'actor': 'lambda0xE'}

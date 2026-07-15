@@ -1,0 +1,7 @@
+# pk public matrix audit
+params B=337 m_bits=8192 n_bits=16384 h_col_wt=192 x_col_wt=128 err_wt=128 lpn_n=4096 lpn_t=16384 tau=1/8
+H_cols=16384 H_digest_bytes=32 canon_tag=531565633433868593 powg_B=337 ubk_perm=8192 ubk_inv=8192
+H_nbits_max=8192 H_weight_min=192 H_weight_max=193 H_weight_avg=192.5 zero_cols=0 duplicate_col_groups=0
+H_rank=8192 rank_defect_vs_bits=0 rank_defect_vs_cols=8192
+ubk_inverse_consistent=true
+assessment=no zero/duplicate H columns or UBK permutation inconsistency; public H rank is consistent with no obvious public linear collapse
