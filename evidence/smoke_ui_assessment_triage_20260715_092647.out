@@ -1,0 +1,388 @@
+# smoke-ui/octra-hfhe-v2-security-assessment triage 20260715_092647
+HEAD b30df471cbc7ba1df2c927578782d4f3cdf0cff5
+--- files
+.git/HEAD
+.git/config
+.git/description
+.git/hooks/applypatch-msg.sample
+.git/hooks/commit-msg.sample
+.git/hooks/fsmonitor-watchman.sample
+.git/hooks/post-update.sample
+.git/hooks/pre-applypatch.sample
+.git/hooks/pre-commit.sample
+.git/hooks/pre-merge-commit.sample
+.git/hooks/pre-push.sample
+.git/hooks/pre-rebase.sample
+.git/hooks/pre-receive.sample
+.git/hooks/prepare-commit-msg.sample
+.git/hooks/push-to-checkout.sample
+.git/hooks/sendemail-validate.sample
+.git/hooks/update.sample
+.git/index
+.git/info/exclude
+.git/logs/HEAD
+.git/packed-refs
+.git/shallow
+.github/CODEOWNERS
+.github/ISSUE_TEMPLATE/attack-hypothesis.md
+.github/ISSUE_TEMPLATE/reproducibility.md
+.github/dependabot.yml
+.github/pull_request_template.md
+.github/workflows/ci.yml
+.gitignore
+CITATION.cff
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CRYPTOGRAPHIC_CLAIMS_GUIDE.md
+EXECUTIVE_SUMMARY.md
+FINDINGS.md
+LICENSE
+LIMITATIONS.md
+METHODOLOGY.md
+Makefile
+README.md
+REPORT.md
+SECURITY.md
+THREAT_MODEL.md
+disclosure/EMAIL_TEMPLATE.md
+disclosure/TECHNICAL_SUMMARY.md
+disclosure/VENDOR_CHECKLIST.md
+docs/threat-model.svg
+requirements.txt
+research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md
+research/HFHE_V2_CIPHERTEXT_ALGEBRA.md
+research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md
+research/OCTRA_MOBIUS_SEQUENCING_ASSESSMENT.md
+research/PHASE2_DEEP_TESTING_PLAN.md
+research/PHASE2_LAB_LOG.md
+research/RNG_HISTORY_REPORT.md
+research/S10_PEG_DEEP_AUDIT.md
+research/hfhe-subgroup-projection-report.md
+research/hfhe-v2-algorithm-assessment.md
+research/lpn_practical_benchmark.json
+research/lpn_practical_benchmark.py
+results/artifact_audit.txt
+results/field-mobius.json
+results/findings.json
+results/findings.sarif
+results/hypergraph-mobius.json
+results/invariant_production_results.json
+results/invariant_reduced_results.json
+results/lpn-bkw.json
+results/lpn-mobius.json
+results/tensor_v2_results.json
+scripts/run-all.sh
+scripts/secret-scan.py
+scripts/setup.sh
+scripts/verify-artifacts.sh
+scripts/verify-mobius.sh
+tools/analyze_artifact_history.sh
+tools/analyze_tensor_v2.py
+tools/bit-fault-atlas/.gitignore
+tools/bit-fault-atlas/Cargo.lock
+tools/bit-fault-atlas/Cargo.toml
+tools/compiler-differential/README.md
+tools/compiler-differential/fixture.cpp
+tools/compiler-differential/matrix-results.json
+tools/compiler-differential/runner.py
+tools/compiler-differential/test_runner.py
+tools/cross_artifact_rng.cpp
+tools/entropy-fault/csprng-driver.cpp
+tools/entropy-fault/entropy-fault.c
+tools/entropy-fault/run-tests.sh
+tools/entropy-fault/status-runner.py
+tools/hfhe_ciphertext_algebra_toy.py
+tools/hfhe_subgroup_projection_audit.cpp
+tools/hfhe_subgroup_toy.py
+tools/hfhe_v2_structural_audit.cpp
+tools/invariant-discovery/README.md
+tools/invariant-discovery/discover.py
+tools/invariant-discovery/generate_features.cpp
+tools/length_framing_probe.cpp
+tools/lpn-lattice-sequence/README.md
+tools/lpn-lattice-sequence/bkw_experiment.py
+tools/lpn-lattice-sequence/lattice_experiment.py
+tools/lpn-lattice-sequence/test_bkw_experiment.py
+tools/lpn-lattice-sequence/test_lattice_experiment.py
+tools/lpn-samples-audit/README.md
+tools/lpn-samples-audit/audit.py
+tools/lpn-samples-audit/test_audit.py
+tools/mobius-sequencing/README.md
+tools/mobius-sequencing/field_experiment.py
+tools/mobius-sequencing/field_extract.cpp
+tools/mobius-sequencing/hypergraph_experiment.py
+tools/mobius-sequencing/lpn_experiment.py
+tools/mobius-sequencing/mobius.py
+tools/mobius-sequencing/test_field_experiment.py
+tools/mobius-sequencing/test_hypergraph_experiment.py
+tools/mobius-sequencing/test_lpn_experiment.py
+tools/mobius-sequencing/test_mobius.py
+tools/prf_r_audit.cpp
+tools/reduced-models/finite_field_controls.py
+tools/reduced-models/smt_wrapped_control.py
+tools/reduced-models/test_finite_field_controls.py
+tools/reduced-models/test_smt_wrapped_control.py
+tools/runtime-probes/.gitignore
+tools/runtime-probes/Makefile
+tools/runtime-probes/README.md
+tools/runtime-probes/concurrency_probe.cpp
+tools/runtime-probes/run_probes.sh
+tools/runtime-probes/test_runtime_probes.py
+tools/runtime-probes/timing_probe.cpp
+tools/rust-wire-audit/Cargo.lock
+tools/rust-wire-audit/Cargo.toml
+tools/rust-wire-audit/README.md
+tools/s10-peg-audit/README.md
+tools/s10-peg-audit/audit.py
+tools/s10-peg-audit/deep_corr.cpp
+tools/s10-peg-audit/test_audit.py
+tools/structured-fuzz/Makefile
+tools/structured-fuzz/README.md
+tools/structured-fuzz/harness.hpp
+tools/structured-fuzz/libfuzzer_target.cpp
+tools/structured-fuzz/seed_generator.cpp
+tools/structured-fuzz/structured_runner.cpp
+tools/structured-fuzz/test_structured_fuzz.py
+tools/tensor_v2_experiment.cpp
+tools/wallet_entropy_bruteforce.mjs
+--- marker grep
+./research/S10_PEG_DEEP_AUDIT.md:20:- `e4645c9` replaced the generated template with a private `plaintext.txt`, regenerated both key and ciphertext, and retained ordinary nondeterministic `keygen`.
+./research/S10_PEG_DEEP_AUDIT.md:21:- `88a72b7` has generator, serializer, parameters, and manifest blobs identical to `e4645c9`. It regenerated `pk.bin` and `secret.ct`; the bundle grew from 9 to 22 objects. The final plaintext length is therefore 301–315 bytes.
+./research/S10_PEG_DEEP_AUDIT.md:42:14. Cross-key composition review for known-template, related-plaintext, LPN, PRF, commitment, matrix, quotient, and differential attacks.
+./research/S10_PEG_DEEP_AUDIT.md:117:The historical pegs provide independent-key samples. They do not provide the same-key or same-mask equations required for a related-plaintext or differential attack.
+./research/S10_PEG_DEEP_AUDIT.md:119:- Knowing the first peg's plaintext template does not reveal its multiplicative masks or create an oracle for another key.
+./research/S10_PEG_DEEP_AUDIT.md:129:The only confirmed leakage remains framing metadata: the final 22-object bundle constrains plaintext length to 301–315 bytes. This was already documented and is not plaintext recovery.
+./research/S10_PEG_DEEP_AUDIT.md:136:- No private plaintext, secret key, generator process memory, or entropy state was accessed.
+./research/S10_PEG_DEEP_AUDIT.md:137:- No plaintext, key, bounty solution, or fund access was recovered.
+./research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md:7:**The intended construction uses one shared secret `S`, not 44 secrets.** At pinned implementation commit `071b0e909c119de815e284b347c4bd979cb59ef3`, `include/pvac/crypto/keygen.hpp:150-160` allocates and samples exactly one dense, uniform `sk.lpn_s_bits`. `include/pvac/crypto/lpn.hpp:335-373` accepts that `SecKey` and, for every seed/domain, generates fresh rows/noise but computes every label against `sk.lpn_s_bits`. The challenge creates one `SecKey`, and the README uses singular “recover S.” The 44 headers have 44 distinct seed/nonce tuples and 44 distinct `public_T` values, consistent with fresh streams under one key.
+./research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md:9:Important qualification: the added verifier is **not a cryptographic binding of equation bodies**. `source/tools/verify_lpn_sample_binding.cpp:46-51,103-110,169-180` reads only the first metadata line and matches seed/nonce/`public_T` to a ciphertext target. It never parses or regenerates any `a` or `y` row. SHA256SUMS authenticates the repository files, but the verifier alone would accept arbitrary row bodies under an authentic header. A generator or a verifier that checks every equation is needed to independently establish that the rows implement the pinned secret-key computation. Without recovering `S`, the data alone cannot distinguish “one shared S” from labels made with separate random secrets; the shared-S conclusion is source/publisher evidence, not an independently verified algebraic fact.
+./research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md:49:Direct Walsh recovery is a transform over `2^4096` candidates. Guessing `k` coordinates costs `2^k`, while marginal correlation of a single coordinate is zero for a dense unknown secret because the remaining random parity masks it. LF/FWHT becomes useful only after dimension reduction; BKW reduction sufficient to make (say) a 40–60-bit terminal Walsh search also drives noise toward 1/2. The extra 44-instance sample count helps terminal statistics only if a preceding reduction preserves measurable bias.
+./research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md:53:Viewing recovery as syndrome decoding gives a random binary code of length 16,384 with an error of expected weight 2,048 and 4,096 secret variables. A basic “choose 4096 noise-free equations, solve, verify” trial succeeds with
+./research/OCTRA_LPN_PRACTICAL_ASSESSMENT.md:75:3. **Reduced planted controls:** generate shared-S instances at `n=128,256,512` with fixed `m/n=176,tau=1/8`; run the exact proposed BKW/coded-BKW pipeline and verify recovered S and scaling. Include separate-S negative controls.
+./research/hfhe-subgroup-projection-report.md:4:No plaintext distinguisher or partial mask cancellation was found.
+./research/hfhe-subgroup-projection-report.md:8:`Q(x)=x^337` has kernel exactly `H`. Thus it would expose the plaintext coset if a
+./research/hfhe-subgroup-projection-report.md:36:- Full-field masks: maximum TV distance between projected plaintext classes = `0.0`.
+./research/hfhe-subgroup-projection-report.md:37:- Subgroup-restricted masks: TV distance across different plaintext cosets = `1.0`.
+./research/hfhe-subgroup-projection-report.md:47:public scalar-reduction oracle for `Q(R)` or a character projection.
+./research/PHASE2_DEEP_TESTING_PLAN.md:5:Authorized local testing of OCTRA's public HFHE Challenge v2 artifacts and pinned public source only. No production services, wallets, malformed network traffic, or claims of plaintext recovery without deterministic verification.
+./research/PHASE2_DEEP_TESTING_PLAN.md:16:- Generate local known-key/known-plaintext fixtures outside published artifacts.
+./research/PHASE2_DEEP_TESTING_PLAN.md:67:- Statistical correlation: not leakage without independent-key generalization.
+./research/PHASE2_DEEP_TESTING_PLAN.md:68:- Plaintext recovery: require clean-room deterministic rerun and target-address validation.
+./research/RNG_HISTORY_REPORT.md:11:| first commit | pk SHA-256 | secret.ct SHA-256 | count | canon_tag |
+./research/RNG_HISTORY_REPORT.md:26:- Every ztag equals deterministic `prg_layer_ztag(canon_tag, nonce)`; this is domain binding, not hidden entropy or a seed-recovery oracle.
+./research/RNG_HISTORY_REPORT.md:32:- The v2_fix generator itself drew the email suffix and 256-bit secret directly from `/dev/urandom`; the next generation removed generated plaintext and loaded private `plaintext.txt`. Neither path shares a deterministic PRNG state with keygen/encryption.
+./research/RNG_HISTORY_REPORT.md:36:## Payload leakage
+./research/RNG_HISTORY_REPORT.md:38:Bundle count and member sizes reveal formatting/length/depth metadata. The first two versions contain 9 ciphertext objects (member edge counts total 531); final contains 22 (1829 edges). This narrows plaintext length/structure but gives no RNG-state relation. Final plaintext is private-file supplied, so earlier known email/secret template does not carry over.
+./research/RNG_HISTORY_REPORT.md:42:No cross-version state reuse, predictable seed, nonce collision, tag collision, or reusable per-edge randomness was observed. Under the published Linux path, seed recovery reduces to breaking the OS CSPRNG or the cryptographic derivations; repository history provides no such leverage. Historical artifact comparison therefore does **not** currently enable v2 plaintext recovery.
+./research/OCTRA_MOBIUS_SEQUENCING_ASSESSMENT.md:4:**Result:** no demonstrated plaintext, key, or low-weight LPN recovery path
+./research/OCTRA_MOBIUS_SEQUENCING_ASSESSMENT.md:64:Boolean-lattice inversion was computed for every nonempty subset of degree at most four: `12 + 66 + 220 + 495 = 793` coefficients. Exact-cell and conjunction transforms round-trip exactly, and a planted degree-three control is recovered at the planted support.
+./research/OCTRA_MOBIUS_SEQUENCING_ASSESSMENT.md:71:This preserves the global orientation sign rather than independently choosing the cheapest edge. The statistic is invariant to local layer gauge and seam rotation. The same function detects deterministic planted cylinder and Möbius controls.
+./research/OCTRA_MOBIUS_SEQUENCING_ASSESSMENT.md:87:The enumerated finite-field equality and collision families returned exact nulls. The LPN and topology statistics returned multiplicity-corrected statistical nulls. Boolean inversion was an exact descriptive transform: its 793 coefficients were not assigned individual leakage p-values. The experiments do not recover the LPN secret `S`, the independent PRF key, the plaintext mask, or the wallet payload. They also do not prove that every possible construction bearing the name “Möbius” is impossible; they reject the explicit, reproducible families above.
+./research/PHASE2_LAB_LOG.md:9:- `secret.ct`: 1,963,107 bytes / 15,704,856 bits
+./research/PHASE2_LAB_LOG.md:10:- `pk.bin`: 3,042,901 bytes / 24,343,208 bits
+./research/PHASE2_LAB_LOG.md:12:- Independent Rust parse baseline: <0.01 s for `secret.ct`
+./research/PHASE2_LAB_LOG.md:31:The exact pinned `hfhe_bounty_artifact.cpp public-audit` path compiled under Clang 18 with AddressSanitizer and UndefinedBehaviorSanitizer and passed all eight public invariants. No sanitizer diagnostic was emitted.
+./research/PHASE2_LAB_LOG.md:35:The exact native public-audit path passed Memcheck with origin tracking, full leak checking, and a fail-on-error exit code. No memory or definite/indirect leak error was emitted.
+./research/PHASE2_LAB_LOG.md:81:- Native public audit: all eight invariants passed
+./research/PHASE2_LAB_LOG.md:84:Classification: confirmed noncanonical wire alias/parser differential. This is not plaintext recovery; semantic equivalence is expected because native `Reader::fp()` clears the bit.
+./research/PHASE2_LAB_LOG.md:125:The strict reproducibility result is therefore fail. This does not show a plaintext error, but it invalidates cross-compiler deterministic-byte assumptions and warrants root-cause analysis of seeded generation and uninitialized/order-dependent state.
+./research/hfhe-v2-algorithm-assessment.md:5:No known classical or quantum algorithm materially lowers the *applicable* cost of plaintext recovery from the v2 public artifact. Published LPN solvers require explicit classical `(A,y=A s+e)` samples; quantum polynomial-time parity learners require coherent quantum-example-oracle access. V2 provides neither. It publishes 22 wrapped ciphertexts containing 44 independently seeded BASE layers, where the LPN vectors are generated internally and compressed through a secret-keyed AES-derived PRG, a 127-bit Toeplitz extractor, multiplicative combination, ciphertext masking, and commitments. Treating the advertised `(n,t,tau)=(4096,16384,1/8)` as a directly exposed LPN instance is therefore a category error.
+./research/hfhe-v2-algorithm-assessment.md:11:* `lpn_make_ybits` constructs each row of `A` from AES-CTR keyed by `SHA256(sk.prf_k, public data, layer seed, domain)`, computes `<A_i,s> xor e_i`, and retains `y` only locally (`include/pvac/crypto/lpn.hpp:307-374`). Thus even `A` is not reproducible without `sk.prf_k`.
+./research/hfhe-v2-algorithm-assessment.md:13:* The secret consists of an independent 256-bit `prf_k` and dense 4096-bit `lpn_s_bits` (`types.hpp:195-198`); challenge generation calls nondeterministic `keygen`, not the wallet-seeded alternative (`source/hfhe_bounty_artifact.cpp:333-362`; `keygen.hpp:150-161`). Therefore there is no hidden 256-bit master seed to enumerate.
+./research/hfhe-v2-algorithm-assessment.md:25:Sparse-secret improvements do not apply: `lpn_s_bits` is sampled uniformly/densely. Ring-LPN/algebraic attacks do not apply: there is no ring/cyclic sample structure. Multiple-layer attacks do not provide repeated samples under one public matrix: each domain/layer derives a fresh secret AES key/stream from `prf_k` and the nonce.
+./research/hfhe-v2-algorithm-assessment.md:27:### Generic key/plaintext search
+./research/hfhe-v2-algorithm-assessment.md:29:Direct exhaustive secret-key search is nominally `2^(256+4096)=2^4352`, not `2^256`, because challenge generation uses independent randomness. Guessing plaintext is useful only if there is a public guess verifier. V2 intentionally removed the v1 `R_com` offline-check oracle; Pedersen commitments are independently blinded. Text framing and the leaked 301–315-byte length range constrain candidates but do not validate them. Thus dictionary search cannot be converted into a cryptanalytic recovery algorithm unless the plaintext itself has very low entropy or an overlooked public invariant is found.
+./research/hfhe-v2-algorithm-assessment.md:31:The outer HFHE structure (`H` rank, sparse edges, sigma vectors) may suggest syndrome decoding, but it does not expose a syndrome whose solution is the plaintext or LPN secret. Solving public `H` relations merely reconstructs public masking relations already represented in the ciphertext and does not reveal the hidden per-layer `R` values.
+./research/hfhe-v2-algorithm-assessment.md:37:Cross–Smith–Smolin recover parity efficiently in a model with a **quantum example oracle**, i.e. coherent access to a superposition of labeled examples. A static classical file is not that oracle. Piatkowski–Zoufal–Mücke explicitly note that naively encoding classical noisy parity data for the quantum algorithm requires exponential sample complexity. V2 is still weaker: it does not even provide the classical labeled data.
+./research/hfhe-v2-algorithm-assessment.md:39:Accordingly, these polynomial-time quantum results give no attack on `secret.ct`. Quantum access to SHA/AES implementations does not synthesize coherent access to the unknown secret-keyed internal sample generator.
+./research/hfhe-v2-algorithm-assessment.md:43:Grover can at most quadratically accelerate a *defined, efficiently checkable* search. Quantum ISD likewise Groverizes a syndrome-decoding predicate and requires an explicit code/syndrome. There is no v2 LPN syndrome to decode and no public plaintext predicate.
+./research/hfhe-v2-algorithm-assessment.md:45:If one hypothetically supplied a verifier and searched only a 256-bit secret, Grover would still require about `2^128 = 3.40e38` sequential oracle iterations. Even an impossible sustained `10^9` full reversible decryptions/s gives about `1.08e22` years, before error correction and the very large reversible HFHE/AES/SHA/field-arithmetic circuit. For the actual independently sampled 4352-bit secret, generic Grover is `2^2176` iterations. Grover over a `k`-bit plaintext dictionary would reduce `2^k` to `2^(k/2)` only if a public verifier existed; v2 supplies none.
+./research/hfhe-v2-algorithm-assessment.md:47:Shor, HHL, Simon, hidden-shift and quantum linear-system algorithms do not apply: there is no exposed factoring/discrete-log instance tied to decryption, no coherent periodic oracle, and HHL does not solve noisy Boolean equations or output their full classical secret efficiently. Pedersen commitments have discrete-log security, but opening an independently blinded commitment does not identify plaintext; a future Shor-capable machine could solve the Ristretto discrete logs, yielding commitment linear relations, yet both committed value and blinding are unknown and the map remains underdetermined absent a reused/known blinder.
+./research/hfhe-v2-algorithm-assessment.md:53:3. **Syndrome decoding / quantum ISD on sparse ciphertext edges:** no target syndrome corresponding to secret/plaintext is exposed.
+./research/hfhe-v2-algorithm-assessment.md:55:5. **Known text format as an oracle:** it validates a decrypted key candidate but does not score plaintext guesses directly. Since key search is 4352 bits, this does not create a realistic attack.
+./research/hfhe-v2-algorithm-assessment.md:59:There is no applicable literature speedup that changes the practical recovery outlook. The right security statement is not “LPN at n=4096 costs X”: the attacker is not given an LPN instance. Any meaningful attack must first break the secret-keyed extraction/masking interface, find randomness reuse, recover an offline guess oracle, or expose internal `(A,y)` samples. Absent that missing reduction, classical BKW/LF/ISD estimates and quantum-example polynomial algorithms are irrelevant; generic quantum search remains astronomically infeasible.
+./research/hfhe-v2-algorithm-assessment.md:67:* A. W. Cross, G. Smith, J. A. Smolin, “Quantum learning robust against noise,” Phys. Rev. A 92, 012327 (2015), quantum-example oracle model: https://arxiv.org/abs/1407.5088
+./research/hfhe-v2-algorithm-assessment.md:70:* S. D., P. C., “On the practical cost of Grover for AES key recovery,” NIST PQC Conference 2024: https://csrc.nist.gov/csrc/media/Events/2024/fifth-pqc-standardization-conference/documents/papers/on-practical-cost-of-grover.pdf
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:5:No practical ciphertext-algebra equality/guess predicate exists in the published two-BASE-layer wrapper under the stated PRF and Pedersen assumptions. The only information-theoretic predicate found is the event `N0 == 0`; for a nonzero plaintext it occurs with probability about `1/(p-1) = 2^-127`, and for plaintext zero it cannot occur (assuming nonzero masks). The published artifact passes `public_nonzero`, so this event did not occur in any slot.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:46:`R_com` would have committed by hash directly to `R` and enabled candidate verification. It is zeroed/removed in v2's artifact. `PC` is not a replacement oracle because its unknown Pedersen blinding cannot be recomputed or canceled.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:53:4. **Edge-level ratios/subsets:** random field shares reveal no additional invariant beyond each layer sum. Fresh independent `R` prevents cross-layer and cross-block ratio cancellation.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:63:* PC pairs are exactly uniform for every tested plaintext.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:64:* Full public distributions for two distinct nonzero plaintexts have total variation distance 0.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:65:* Zero versus nonzero plaintext has distance `1/30`, exactly the exceptional `N0=0` event.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:66:* Conditioning on `N0 != 0`, distinct nonzero plaintext distributions remain identical.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:67:* The candidate `N0*PC0 + N1*PC1` has the same distribution for distinct nonzero plaintexts and never becomes an equality oracle.
+./research/HFHE_V2_CIPHERTEXT_ALGEBRA.md:81:This decisively falsifies attacks using algebraic/group operations on the published numerators, PCs, public power basis, edge data, and multiple independent blocks in the generic-group/secure-PRF model. It does not prove the PRFs or Ristretto implementation secure against implementation-specific cryptanalysis; such an attack would have to recover/correlate `R` or `rho`, exploit nonce reuse, or break Pedersen discrete-log hiding rather than exploit the wrapper algebra itself.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:5:This note assesses whether the three reachable v2 generations at `08bf879`, `e4645c9`, and `88a72b7` compose into plaintext or key recovery. **No actionable composition was found.** The strongest new observation is that all order-337 public bases can be aligned across keys (the subgroup of a given order in `F_p*` is unique), but this only normalizes public coordinates; it does not remove the independent full-field PRF masks or Pedersen blindings.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:16:Each key generation independently samples `canon_tag`, the 256-bit `prf_k`, field generators, and the 4096-bit LPN secret through the OS CSPRNG (`keygen.hpp:80-155`). `H` is public and deterministically generated from that generation's `canon_tag` (`matrix.hpp:225-283`). Each layer has a fresh 128-bit nonce. Consequently, even an exact relation `v[k,b]=v[k',b']` leaves four unrelated mask unknowns in the two ciphertext pairs.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:22:| Known template in `08bf879` | Useful as a known-plaintext control only. Its source plaintext was `email = bounty.data%06u@octra.org\nsecret = <64 hex>\n`; unknown suffix/secret do not matter because even exact plaintext knowledge gives no `R` oracle. | Different public key and fresh `R,m,rho`; v2 omits `R_com`. Test whether any candidate-derived public equality holds on the known template and then on fresh keys. Existing generic algebra toy rejects such equalities. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:23:| Related plaintext across generations | No same-key related-message equations. Repeated headers or formatting do not cancel cross-key masks. | Need reuse/correlation of `R`, wrapper `m`, or commitment blinding; none observed. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:24:| Same generator source (`e4645c9`/`88a72b7`) | Source identity is not state identity. Byte comparison confirms identical generator source, but each run calls nondeterministic `keygen`; plaintext is loaded from private `plaintext.txt`. | Reproduce under an entropy-call tracer: independent OS draws must differ; deterministic replay would be evidence. Existing entropy/source trace finds `getrandom(2)` with `/dev/urandom` fallback. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:26:| Cross-key LPN/BKW/ISD | The original historical pegs expose no rows, but OCTRA's later `d9d29d5` release adds 44 `(A,y)` files for the live challenge key. Those same-key files may be aggregated against one source-supported `S`; they do not create cross-key relations to the older pegs. | The added data is a 720,896-sample dense LPN side target at `n=4096, tau=1/8`. No duplicate-row or rank shortcut was found, and recovering `S` alone does not recover the independent `prf_k` or plaintext masks. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:27:| Cross-key PRF attack | More black-box outputs under independent keys do not aid single-key recovery. Even `R` itself is not public; `PC=phi(R^-1)G+rho H` is independently blinded. | Requires related keys, nonce reuse, stream overlap, or a cross-key distinguisher that generalizes to held-out keys. None is evidenced. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:29:| Differential ciphertext equations | Subtracting aligned public aggregates gives `N-N'`, not a plaintext difference: unrelated multiplicative masks remain. Edge decompositions add random shares constrained only by each `N`. | A known/repeated plaintext does not reduce the number of independent masks. |
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:47:2. **Known-template candidate-oracle control:** regenerate the exact `08bf` template under many independent keys, label known blocks, and test only predeclared candidate equations. Hold out whole keys. An expression that works only within one key is rejected.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:48:3. **Public-matrix composition test:** compute pairwise column intersections and GF(2) ranks of `[H_i|H_j]` and `H_i xor P H_j` for simple public permutations. A rank defect is only actionable if a derivation shows it constrains independently sampled `s_i,s_j`; otherwise it is public-generator structure, not leakage.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:50:5. **Cross-key PRF distinguisher:** train on multiple regenerated keys and reserve entire unseen keys. Require multiplicity-corrected significance and held-out generalization. Existing invariant discovery already found no held-out-key signal in 1,104 expressions, making this lower priority.
+./research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md:54:The three pegs increase the sample count only for **independent-key** observations. They do not produce the same-key or same-mask relations needed for related-plaintext, differential, LPN, commitment, or character attacks. Cross-key subgroup alignment is mathematically real and worth one deterministic collision scan, but under the source equations it normalizes public basis labels while leaving a fresh unknown quotient mask in every layer. It is therefore a probe, not a current recovery path.
+./disclosure/EMAIL_TEMPLATE.md:9:- secret.ct SHA-256: 5da7f82724838bf7a8c4fe95fbf6d573b621c04c9b2f7ae849545cf60223fbab
+./disclosure/EMAIL_TEMPLATE.md:26:No unrelated systems or wallets were tested. [State whether credentials were recovered; never include them in email body.] Please acknowledge receipt and advise on a coordinated disclosure timeline.
+./disclosure/TECHNICAL_SUMMARY.md:11:No public-only plaintext recovery was achieved. V2 appears to close the v1 public candidate-verification oracle under the documented assumptions.
+./disclosure/VENDOR_CHECKLIST.md:10:- [ ] Separate wire/proof schemas or document lifecycle invariants
+./CODE_OF_CONDUCT.md:13:- Redact private keys, mnemonics, tokens, and wallet files.
+./CODE_OF_CONDUCT.md:20:- Falsifying outputs, identities, authorship, or successful recovery
+./tools/runtime-probes/timing_probe.cpp:54:        for (auto& w : sk.prf_k) w = csprng_u64();
+./tools/runtime-probes/README.md:5:- `timing_probe`: dudect-style randomized measurement ordering, fixed public key/seed/domain, randomized secret pools split by one secret-bit class, warmup, batching, volatile sink, and Welch's t statistic. `|t| >= 4.5` means **investigate**, never “leak proven.”
+./tools/analyze_tensor_v2.py:36:# generalization this is explicitly not a plaintext estimate.
+./tools/wallet_entropy_bruteforce.mjs:5:const target = 'octC5eR9pLGKbpzTbDgHowkFt8HW7LZYb2gzehzxHamxuAZ';
+./tools/wallet_entropy_bruteforce.mjs:33:  const mnemonic = bip39.entropyToMnemonic(entropy);
+./tools/wallet_entropy_bruteforce.mjs:34:  const seed = bip39.mnemonicToSeedSync(mnemonic);
+./tools/wallet_entropy_bruteforce.mjs:39:    found = { index: (start + BigInt(i)).toString(), mnemonic };
+./tools/hfhe_subgroup_projection_audit.cpp:21:int main(int argc,char**argv){try{std::string root=argc>1?argv[1]:".";auto pb=load(root+"/pk.bin"),cb=load(root+"/secret.ct");auto pk=pvac_ser::deserialize_pubkey(pb.data(),pb.size());size_t pos=16;uint64_t n=rd64(cb,pos);std::vector<Cipher> cs;for(uint64_t i=0;i<n;i++){auto z=rd64(cb,pos);cs.push_back(pvac_ser::deserialize_cipher(cb.data()+pos,z));pos+=z;}
+./tools/hfhe_subgroup_toy.py:2:"""Exhaustive toy checks for subgroup/coset leakage in wrapped multiplicative masks."""
+./tools/hfhe_subgroup_toy.py:12:# One-layer N=R*v: full-field R hides v; subgroup-only R leaks vH.
+./tools/hfhe_subgroup_toy.py:27:print("full-mask max TV between nonzero plaintext coset projections:",max(tv(full[a],full[b]) for a in vs for b in vs))
+./tools/hfhe_subgroup_toy.py:28:print("subgroup-mask TV for different plaintext cosets:",tv(restricted[1],restricted[2]))
+./tools/hfhe_subgroup_toy.py:31:print("conclusion: quotient projection leaks only if masks are confined/correlated by coset; full independent masks erase it")
+./tools/analyze_artifact_history.sh:11:  sha256sum "$d"/pk.bin "$d"/secret.ct 2>/dev/null || true
+./tools/tensor_v2_experiment.cpp:38:int main(int ac,char**av){try{if(ac!=4){std::cerr<<"usage: extractor pk.bin secret.ct out.csv\n";return 2;}auto pb=rf(av[1]);auto pk=pvac_ser::deserialize_pubkey(pb.data(),pb.size());std::ofstream o(av[3]);o<<"source,sample,block,label";for(int i=0;i<2000;i++)o<<",x"<<i;o<<'\n';auto real=bundle(av[2]);for(size_t i=0;i<real.size();i++)row(o,"artifact",i,i,-1,sketch(pk,real[i]));
+./tools/tensor_v2_experiment.cpp:39: // Known-plaintext controls use production defaults and a fresh key. Labels are 16
+./tools/rust-wire-audit/README.md:3:Dependency-free Rust parser for OCTRA HFHE Challenge v2 `secret.ct` bundles.
+./tools/rust-wire-audit/README.md:20:cargo run --release -- /path/to/hfhe-challenge/secret.ct
+./tools/rust-wire-audit/README.md:26:wire_audit=PASS
+./tools/rust-wire-audit/src/main.rs:205:    let path = env::args().nth(1).unwrap_or_else(|| "secret.ct".into());
+./tools/rust-wire-audit/src/main.rs:208:            println!("wire_audit=PASS");
+./tools/lpn-lattice-sequence/test_lattice_experiment.py:33:    def test_correlation_decoder_recovers_small_noisy_control_and_validates_holdout(self):
+./tools/lpn-lattice-sequence/test_lattice_experiment.py:66:        self.assertTrue(positive["planted_vector_recovered"])
+./tools/lpn-lattice-sequence/test_lattice_experiment.py:71:    def test_short_dual_reports_parity_bias_not_decoder_recovery(self):
+./tools/lpn-lattice-sequence/test_lattice_experiment.py:79:    def test_cli_writes_compact_reproducible_json_with_no_full_recovery_claim(self):
+./tools/lpn-lattice-sequence/test_lattice_experiment.py:86:        self.assertTrue(data["limitations"]["no_full_octra_recovery_claim"])
+./tools/lpn-lattice-sequence/README.md:3:This is a bounded, deterministic synthetic-control benchmark, **not** an OCTRA key-recovery claim. It writes compact JSON to `results/lpn-lattice-controls.json`; it records neither timings nor secret values.
+./tools/lpn-lattice-sequence/README.md:17:Every algorithm reports its own work unit (`candidate_assignments_scored`, `information_sets_sampled`, `rows_in_square_system`, `row_combinations_tested`, or `lovasz_checks`). These units are intentionally not compared across methods. Short-dual output reports observed parity fraction but is explicitly labeled `dependency_enumeration_only`; it is not presented as recovered decoding information.
+./tools/lpn-lattice-sequence/README.md:25:It then runs deterministic textbook LLL with exact rational Gram-Schmidt arithmetic and `delta=3/4`; no optional backend is required. The toy positive has a planted weight-two lattice vector (squared norm 2). Five seed-frozen matched negatives have no nonzero binary kernel and therefore shortest squared norm 4. Acceptance requires LLL to recover the planted vector, every lattice negative to remain at squared norm at least 4, and every independent-label decoder negative to exceed a 1/4 held-out error rate.
+./tools/lpn-lattice-sequence/results/lpn-lattice-controls.json:1:{"acceptance":{"criterion":"planted norm^2<4 recovered; every lattice negative norm^2>=4; every label negative holdout error rate>1/4","passed":true},"controls":{"construction_a_lll":{"matched_negative":[{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":false,"seed":6201,"shortest_squared_l2":4,"work":{"unit":"lovasz_checks","value":7}},{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":false,"seed":6202,"shortest_squared_l2":4,"work":{"unit":"lovasz_checks","value":7}},{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":false,"seed":6203,"shortest_squared_l2":4,"work":{"unit":"lovasz_checks","value":7}},{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":false,"seed":6204,"shortest_squared_l2":4,"work":{"unit":"lovasz_checks","value":7}},{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":false,"seed":6205,"shortest_squared_l2":4,"work":{"unit":"lovasz_checks","value":7}}],"positive":{"algorithm":"exact_fraction_textbook_lll_delta_3/4","basis_materialized":true,"dimension":8,"planted_vector_recovered":true,"seed":6200,"shortest_squared_l2":2,"work":{"unit":"lovasz_checks","value":15}}},"negative":[{"labels":"independent_uniform","result":{"candidate_found":true,"exact_recovery":false,"holdout_residual":15,"method":"exhaustive_correlation","train_residual":22,"work":{"unit":"candidate_assignments_scored","value":4096}},"seed":4999},{"labels":"independent_uniform","result":{"candidate_found":true,"exact_recovery":false,"holdout_residual":9,"method":"exhaustive_correlation","train_residual":20,"work":{"unit":"candidate_assignments_scored","value":4096}},"seed":5000},{"labels":"independent_uniform","result":{"candidate_found":true,"exact_recovery":false,"holdout_residual":11,"method":"exhaustive_correlation","train_residual":21,"work":{"unit":"candidate_assignments_scored","value":4096}},"seed":5001},{"labels":"independent_uniform","result":{"candidate_found":true,"exact_recovery":false,"holdout_residual":14,"method":"exhaustive_correlation","train_residual":20,"work":{"unit":"candidate_assignments_scored","value":4096}},"seed":5002},{"labels":"independent_uniform","result":{"candidate_found":true,"exact_recovery":false,"holdout_residual":9,"method":"exhaustive_correlation","train_residual":21,"work":{"unit":"candidate_assignments_scored","value":4096}},"seed":5003}],"positive":[{"holdout":16,"m":64,"methods":[{"candidate_found":false,"exact_recovery":false,"holdout_residual":null,"method":"square_gf2_first_n_rows","train_residual":null,"work":{"unit":"rows_in_square_system","value":8}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":2,"method":"exhaustive_correlation","train_residual":6,"work":{"unit":"candidate_assignments_scored","value":256}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":2,"method":"information_set_sampling","train_residual":6,"work":{"unit":"information_sets_sampled","value":2000}},{"dependencies_found":61,"interpretation":"dependency_enumeration_only","method":"short_dual","truncated":false,"work":{"unit":"row_combinations_tested","value":18472},"zero_parity_fraction":0.7213114754098361}],"n":8,"seed":4100,"train":48},{"holdout":24,"m":96,"methods":[{"candidate_found":false,"exact_recovery":false,"holdout_residual":null,"method":"square_gf2_first_n_rows","train_residual":null,"work":{"unit":"rows_in_square_system","value":12}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":4,"method":"exhaustive_correlation","train_residual":8,"work":{"unit":"candidate_assignments_scored","value":4096}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":4,"method":"information_set_sampling","train_residual":8,"work":{"unit":"information_sets_sampled","value":2000}},{"dependencies_found":4,"interpretation":"dependency_enumeration_only","method":"short_dual","truncated":true,"work":{"unit":"row_combinations_tested","value":20000},"zero_parity_fraction":0.5}],"n":12,"seed":4101,"train":72},{"holdout":32,"m":128,"methods":[{"candidate_found":false,"exact_recovery":false,"holdout_residual":null,"method":"square_gf2_first_n_rows","train_residual":null,"work":{"unit":"rows_in_square_system","value":16}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":3,"method":"exhaustive_correlation","train_residual":13,"work":{"unit":"candidate_assignments_scored","value":65536}},{"candidate_found":true,"exact_recovery":true,"holdout_residual":3,"method":"information_set_sampling","train_residual":13,"work":{"unit":"information_sets_sampled","value":2000}},{"dependencies_found":0,"interpretation":"dependency_enumeration_only","method":"short_dual","truncated":true,"work":{"unit":"row_combinations_tested","value":20000},"zero_parity_fraction":null}],"n":16,"seed":4102,"train":96}]},"limitations":{"lattice_reviewer_scope":"8D duplicate-row/noiseless sanity check; identity negatives are construction-specific; no labels, no noise, no OCTRA rows, no secret decoding, no complexity implication.","no_full_octra_recovery_claim":true,"scope":"reduced deterministic controls only; work units are algorithm-specific and not cross-method comparisons"},"parameters":{"frozen_seeds":true,"m_over_n":8,"noise_model":"fixed_weight_floor_m_over_8","noise_rate":"1/8"},"schema_version":2}
+./tools/lpn-lattice-sequence/lattice_experiment.py:139:    recovered = False if planted is None else any(np.array_equal(shortest, s*planted) for s in (1, -1))
+./tools/lpn-lattice-sequence/lattice_experiment.py:141:            "shortest_squared_l2": int(np.min(norms)), "planted_vector_recovered": recovered,
+./tools/lpn-lattice-sequence/lattice_experiment.py:162:            "exact_recovery": False if candidate is None else bool(np.array_equal(candidate, c["secret"]))}
+./tools/lpn-lattice-sequence/lattice_experiment.py:179:    passed = lattice_positive["planted_vector_recovered"] and lattice_positive["shortest_squared_l2"] < 4 and all(x["shortest_squared_l2"] >= 4 for x in lattice_negative) and all(x["result"]["holdout_residual"] / 24 > .25 for x in negative)
+./tools/lpn-lattice-sequence/lattice_experiment.py:182:            "acceptance": {"criterion": "planted norm^2<4 recovered; every lattice negative norm^2>=4; every label negative holdout error rate>1/4", "passed": passed},
+./tools/lpn-lattice-sequence/lattice_experiment.py:183:            "limitations": {"no_full_octra_recovery_claim": True, "scope": "reduced deterministic controls only; work units are algorithm-specific and not cross-method comparisons",
+./tools/hfhe_ciphertext_algebra_toy.py:56:    # Remove the sole exceptional event N0=0; nonzero plaintexts become identical.
+./tools/mobius-sequencing/field_extract.cpp:37: if(argc!=3)throw std::runtime_error("usage: field_extract pk.bin secret.ct");
+./tools/mobius-sequencing/field_experiment.py:166:  proc=subprocess.run([str(exe),str(ch/"pk.bin"),str(ch/"secret.ct")],text=True,capture_output=True)
+./tools/mobius-sequencing/field_experiment.py:169:  records["meta"].update({"challenge_commit":PINNED_CHALLENGE,"pvac_commit":PINNED_PVAC,"pk_sha256":_sha(ch/"pk.bin"),"ciphertext_sha256":_sha(ch/"secret.ct"),"extractor_sha256":_sha(here/"field_extract.cpp"),"source_mode":"validated-git-archives"})
+./tools/mobius-sequencing/lpn_experiment.py:42: resolved=_git(repo,"rev-parse",commit+"^{commit}").strip()
+./tools/mobius-sequencing/lpn_experiment.py:43: if resolved!=commit: raise ValueError("challenge commit mismatch")
+./tools/mobius-sequencing/hypergraph_experiment.py:89:    recovered = subset_mobius(evaluations)
+./tools/mobius-sequencing/hypergraph_experiment.py:90:    support = tuple(i for i, value in enumerate(recovered) if value)
+./tools/mobius-sequencing/hypergraph_experiment.py:92:        "exact": recovered == coefficients,
+./tools/mobius-sequencing/hypergraph_experiment.py:93:        "max_error": max(abs(a - b) for a, b in zip(recovered, coefficients)),
+./tools/mobius-sequencing/hypergraph_experiment.py:96:        "recovered_support": list(support),
+./tools/mobius-sequencing/hypergraph_experiment.py:340:    recovered = subset_mobius_supersets(inclusive)
+./tools/mobius-sequencing/hypergraph_experiment.py:368:                           "exact_round_trip": recovered == cells,
+./tools/mobius-sequencing/hypergraph_experiment.py:369:                           "nonzero_exact_cells": sum(value != 0 for value in recovered)},
+./tools/mobius-sequencing/hypergraph_experiment.py:381:        "claims": {"plaintext_leakage": False, "scope": "public_incidence_diagnostics_only"},
+./tools/mobius-sequencing/README.md:41:  .deps/hfhe-challenge/secret.ct \
+./tools/mobius-sequencing/README.md:61:The public artifact has unknown plaintext. Topology results are unlabeled structural diagnostics and cannot establish plaintext leakage without generated, key-disjoint and plaintext-disjoint validation fixtures.
+./tools/mobius-sequencing/test_hypergraph_experiment.py:23:    def test_exact_subset_inversion_recovers_every_cell(self):
+./tools/mobius-sequencing/test_hypergraph_experiment.py:28:    def test_planted_degree_k_fixture_is_recovered_exactly(self):
+./tools/mobius-sequencing/test_hypergraph_experiment.py:32:        self.assertEqual(fixture["recovered_support"], fixture["planted_support"])
+./tools/mobius-sequencing/test_hypergraph_experiment.py:82:    def test_closure_diagnostics_are_invariant_to_local_layer_gauge_and_seam_rotation(self):
+./tools/mobius-sequencing/test_hypergraph_experiment.py:154:            artifact = pathlib.Path(td) / "secret.ct"
+./tools/mobius-sequencing/test_hypergraph_experiment.py:172:        self.assertEqual(one["claims"]["plaintext_leakage"], False)
+./tools/mobius-sequencing/test_field_experiment.py:60: def test_cross_ratios_are_mobius_invariant(self):
+./tools/reduced-models/finite_field_controls.py:5:q0=R0^-1 and q1=R1^-1, a candidate plaintext relation is
+./tools/reduced-models/smt_wrapped_control.py:71:    solved = {}
+./tools/reduced-models/smt_wrapped_control.py:83:        solved[candidate] = answer == "sat"
+./tools/reduced-models/smt_wrapped_control.py:84:    return solved
+./tools/reduced-models/test_smt_wrapped_control.py:28:            solved = solver_satisfiability(
+./tools/reduced-models/test_smt_wrapped_control.py:32:                solved,
+./tools/cross_artifact_rng.cpp:18:static A parse(std::string root){A a;a.n=root;auto pb=load(root+"/pk.bin"),cb=load(root+"/secret.ct");auto pk=pvac_ser::deserialize_pubkey(pb.data(),pb.size());a.tag=pk.canon_tag;size_t p=16,n=u64(cb,p);for(size_t i=0;i<n;i++){size_t z=u64(cb,p);auto c=pvac_ser::deserialize_cipher(cb.data()+p,z);p+=z;for(auto&L:c.L){if(L.rule==RRule::BASE){a.seeds.insert(hex64(L.seed.ztag)+hex64(L.seed.nonce.lo)+hex64(L.seed.nonce.hi));a.nonces.insert(hex64(L.seed.nonce.lo)+hex64(L.seed.nonce.hi));}for(auto&q:L.PC)a.pcs.insert(std::string((char*)q.data(),32));}for(auto&e:c.E){a.sigmas.insert(std::string((char*)e.s.w.data(),e.s.w.size()*8));a.weights.insert(std::string((char*)e.w.data(),e.w.size()*sizeof(Fp)));}}return a;}
+./tools/s10-peg-audit/audit.py:38:        resolved=_run(["git","-C",str(repo),"rev-parse","--verify",f"{commit}^{{commit}}"]).stdout.strip()
+./tools/s10-peg-audit/audit.py:41:    if resolved != commit or typ != "commit": raise ValidationError(f"not the exact commit object: {commit}")
+./tools/s10-peg-audit/audit.py:42:    return resolved
+./tools/s10-peg-audit/audit.py:115:    resolved=pathlib.Path(_run(["which",cxx]).stdout.strip()).resolve()
+./tools/s10-peg-audit/audit.py:116:    return {"executable":str(resolved),"identity":_run([str(resolved),"--version"]).stdout.splitlines()[0],
+./tools/s10-peg-audit/audit.py:117:            "target":_run([str(resolved),"-dumpmachine"]).stdout.strip(),"flags":list(COMPILE_FLAGS),"architecture":platform.machine()}
+./tools/s10-peg-audit/audit.py:169:    forbidden=("secret.ct","pk.bin","PRIVATE KEY","mnemonic","/tmp/",str(pathlib.Path.home()),"raw_distances","raw_trial")
+./tools/s10-peg-audit/audit.py:188:            p=root/f"peg-{i}";p.mkdir();pk=p/"pk.bin";bundle=p/"secret.ct";_extract(challenge,peg,"pk.bin",pk);_extract(challenge,peg,"secret.ct",bundle)
+./tools/s10-peg-audit/audit.py:190:            chron.append({"peg":peg,"timestamp":ts,"source_blobs":{"pk":git_blob(challenge,peg,"pk.bin"),"bundle":git_blob(challenge,peg,"secret.ct")},"artifact_sha256":{"pk":_sha256(pk),"bundle":_sha256(bundle)}});dirs.append(p)
+./tools/s10-peg-audit/test_audit.py:63:  for marker in ("raw_distances","secret.ct","pk.bin","/tmp/",str(pathlib.Path.home())):self.assertNotIn(marker,text)
+./tools/s10-peg-audit/deep_corr.cpp:30:  const auto pb = load(root + "/pk.bin");
+./tools/s10-peg-audit/deep_corr.cpp:31:  const auto cb = load(root + "/secret.ct");
+./tools/length_framing_probe.cpp:20:int main(int ac,char**av){if(ac!=3){std::cerr<<"pk secret.ct\n";return 2;}auto pb=readb(av[1]);auto pk=pvac_ser::deserialize_pubkey(pb.data(),pb.size());auto cs=bundle(readb(av[2]));auto&len=cs[0];
+./tools/structured-fuzz/harness.hpp:27:  f.sk.prf_k={1,2,3,4}; f.sk.lpn_s_bits={0};
+./tools/structured-fuzz/Makefile:20:	@set -o pipefail; ASAN_OPTIONS=detect_leaks=1 UBSAN_OPTIONS=print_stacktrace=1 ./build/libfuzzer_target -max_total_time=30 -timeout=5 -rss_limit_mb=2048 build/corpus 2>&1 | tee build/fuzz-smoke.log
+./tools/structured-fuzz/README.md:3:This harness creates a tiny deterministic `B=3, m=n=1` fixture in memory. It does not read challenge artifacts or contain published/private key material. `structured_runner` records parse, canonical reserialization, compatibility, and decryption comparisons. `sigma_tail` is explicitly `not_applicable`: the pinned cipher/bundle formats contain no serialized sigma field, so inventing such a mutation would not be valid.
+./tools/invariant-discovery/discover.py:2:"""Train/test public-feature synthesizer with permutation p-values and BH-FDR."""
+./tools/invariant-discovery/README.md:1:# Wrapped HFHE public invariant discovery
+./tools/invariant-discovery/README.md:7:`generate_features.cpp` creates labeled wrapped `enc_value` samples and verifies every decryption. It exports only public fields: per-layer public numerators, limbs, edge-weight XORs, sigma parity, index sums, nonces, layer/edge counts. `discover.py` enumerates 1,104 expressions (bit projections, small-prime residues, and cross-field/cross-layer degree-2 sums/products), ranks by plug-in mutual information, computes permutation p-values, applies Benjamini-Hochberg FDR 0.05, and evaluates on entirely unseen keys.
+./tools/invariant-discovery/README.md:21:| regime | samples | keys | train/test | expressions | BH-FDR discoveries |
+./tools/invariant-discovery/README.md:26:The best nominal correlations fail multiplicity correction and have out-of-key classification near/below the 1/16 random baseline. No public plaintext invariant was found in this grammar. High raw MI for high-cardinality residues is finite-sample bias; permutation tests correctly reject it.
+./tools/invariant-discovery/README.md:28:The real artifact was independently revalidated with `hfhe_v2_structural_audit` (`artifact_audit.txt`): 22 canonical ciphertexts, 44 BASE layers, 1,829 edges, all nonces/seeds and public layer sums distinct. Since no candidate survived training/FDR/out-of-key testing, there was no candidate plaintext predicate to apply to the unlabeled artifact. Its accessible structures are nevertheless in-family with the production generator (two BASE layers per wrapped value), and there is no collision/reuse exception that would activate a cross-layer candidate.
+./tools/prf_r_audit.cpp:15: std::string path=std::string(argv[1])+"/secret.ct";
+./tools/lpn-samples-audit/audit.py:40:            resolved=run(["git","-C",str(repo),"rev-parse","--verify",commit+"^{commit}"]).stdout.strip()
+./tools/lpn-samples-audit/audit.py:43:        if resolved!=commit or typ!="commit": raise ValidationError(f"not exact commit object: {commit}")
+./tools/lpn-samples-audit/audit.py:193:    if any(x in encoded for x in ("/home/","/tmp/","raw_rows","seconds","elapsed","rows_per_second")):raise ValidationError("path/raw/timing leakage")
+./tools/lpn-samples-audit/audit.py:200:        archive(cr,CHALLENGE_COMMIT,["SHA256SUMS","lpn_samples","pk.bin","secret.ct","source/tools/verify_lpn_sample_binding.cpp","source/pvac_artifact_serialize.hpp"],challenge)
+./tools/lpn-samples-audit/audit.py:205:        verified=verify_bindings(binary,challenge/"pk.bin",challenge/"secret.ct",challenge/"lpn_samples")
+./tools/bit-fault-atlas/tests/atlas.rs:7:        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../.deps/hfhe-challenge/secret.ct");
+./tools/bit-fault-atlas/tests/atlas.rs:8:    fs::read(path).expect("pinned published secret.ct must be present")
+./tools/bit-fault-atlas/tests/cli.rs:6:    PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../.deps/hfhe-challenge/secret.ct")
+./tools/hfhe_v2_structural_audit.cpp:33: auto pb=load(root+"/pk.bin"), cb=load(root+"/secret.ct");
+./LIMITATIONS.md:28:3. A public predicate that verifies a plaintext candidate.
+./LIMITATIONS.md:31:6. Same-key related-plaintext artifacts.
+./LIMITATIONS.md:35:10. Independent partial plaintext recovery.
+./REPORT.md:12:**Assessment status:** No public-only plaintext recovery achieved
+./REPORT.md:18:We assessed OCTRA's public HFHE Challenge v2 with the stated winning condition: recover the plaintext of `secret.ct` using only the published files.
+./REPORT.md:22:We did **not** recover the plaintext or private key. No practical public-only confidentiality attack was identified.
+./REPORT.md:24:The principal conclusion is that Challenge v2 successfully removes the public plaintext-guess oracle that broke v1. The two-layer wrapped text construction uses independent masks and a fresh additive wrapper. Under secure PRFs, secure randomness, and standard Pedersen commitment hiding, the published values do not provide a verifier for candidate plaintext blocks.
+./REPORT.md:28:1. Ciphertext count leaks a 15-byte interval for plaintext length.
+./REPORT.md:32:5. Independent public reports identify proof/integrity weaknesses in other PVAC paths, but those paths and transcripts are absent from `secret.ct` and could not be composed into plaintext recovery.
+./REPORT.md:55:No challenge credentials were recovered, and no funds were moved.
+./REPORT.md:65:| `pk.bin` | Match |
+./REPORT.md:67:| `secret.ct` | Match |
+./REPORT.md:76:secret.ct
+./REPORT.md:115:- `secret.ct`: 22 valid length-prefixed ciphertexts
+./REPORT.md:137:For the wrapped text representation, a plaintext field block `v` is represented by two independently encrypted layers:
+./REPORT.md:159:## 6. Confirmed finding: plaintext-length interval leakage
+./REPORT.md:163:1. One encrypted plaintext-length value
+./REPORT.md:168:Confirmed leakage:
+./REPORT.md:171:301 <= plaintext length <= 315 bytes
+./REPORT.md:174:This is metadata leakage, not plaintext recovery. The exact length remains encrypted, and all 15 candidate lengths remain publicly indistinguishable in our tests.
+./REPORT.md:178:**Recommendation:** Pad plaintexts to a fixed public size class, or include dummy blocks so the number of payload blocks does not reveal a narrow length interval.
+./REPORT.md:180:## 7. v1 oracle regression analysis
+./REPORT.md:182:Challenge v1 serialized an `R_com` value that allowed structured plaintext guesses to be checked offline:
+./REPORT.md:185:2. Guess plaintext `m'`.
+./REPORT.md:195:For any candidate block `v`, there are mask/wrapper assignments consistent with the observed public pair. No candidate-checking oracle was found.
+./REPORT.md:201:| v1 `R_com` plaintext-guess oracle | Not available on v2 wire format |
+./REPORT.md:202:| Public zero oracle | Neutralized by wrapped text encoding |
+./REPORT.md:209:| Fixed parity invariant | Mixed parity confirmed |
+./REPORT.md:210:| Edge/sigma structural leakage | No plaintext relation found |
+./REPORT.md:212:| Uninitialized memory/padding leak | None found |
+./REPORT.md:216:| Git history plaintext/secret leak | Not found in reachable history |
+./REPORT.md:217:| Public fork/PR solver | No working v2 recovery found |
+./REPORT.md:220:| Quantum LPN learning | Requires coherent example-oracle access not supplied by a static artifact |
+./REPORT.md:241:- A static ciphertext does not provide coherent quantum oracle access
+./REPORT.md:266:Earlier v2 artifacts used different keys and ciphertexts, so they do not create a same-key related-plaintext pair.
+./REPORT.md:274:No historical RNG-state reuse, same-mask equation, or cross-key plaintext/key-recovery route was demonstrated. The full methodology and limitations are in [`research/S10_PEG_DEEP_AUDIT.md`](research/S10_PEG_DEEP_AUDIT.md) and [`research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md`](research/CROSS_GENERATION_COMPOSITION_ASSESSMENT.md).
+./REPORT.md:325:wire_audit=PASS
+./REPORT.md:338:The published bundle contains ordinary `Cipher` records only. It contains no native-reset statements, reset proofs, certificates, openings, evaluation keys, or proof transcripts. Forging or weakening those external proof paths does not create a decryption oracle for the static challenge artifact.
+./REPORT.md:340:These issues may still warrant remediation in their own affected contexts, but no route to Challenge v2 plaintext was demonstrated.
+./REPORT.md:352:No working v2 solver or recovered plaintext was found.
+./REPORT.md:354:Some repositories use filenames such as `plaintext_recovery.cpp`, but their implementations only parse structures and print statistics. They do not perform key or plaintext recovery.
+./REPORT.md:356:## 14. Higher-order and automated invariant experiments
+./REPORT.md:369:The test used 192 fresh production-parameter encryptions across 16 plaintext-byte classes, with 12 independent repetitions per class. Evaluation used leave-one-repetition-out validation and 300 label permutations.
+./REPORT.md:384:No reproducible tensor or higher-order hypergraph signal predicted plaintext.
+./REPORT.md:388:The field basis uses a multiplicative subgroup of order 337. We tested whether multiplicative-character or quotient projections could remove mask entropy or distinguish plaintext classes.
+./REPORT.md:410:An exhaustive toy control correctly detected total leakage when masks were artificially restricted to the small subgroup. With full-field independent masks matching v2, plaintext-class total variation distance was 0.0.
+./REPORT.md:414:### 14.3 Automated public-invariant discovery
+./REPORT.md:430:No feature survived FDR 0.05 in either parameter regime. Nominal training correlations failed on unseen keys. The result is a negative finding for the searched expression grammar, not a formal proof against every possible invariant.
+./REPORT.md:441:invariant_discovery/
+./REPORT.md:446:The public target address provides an exact verifier for candidate wallet mnemonics. OCTRA's official wallet generator uses 128 bits of entropy to produce a 12-word BIP39 mnemonic, then derives the address as:
+./REPORT.md:449:entropy128 -> BIP39 mnemonic
+./REPORT.md:450:seed64     = PBKDF2-HMAC-SHA512(mnemonic, "mnemonic", 2048)
+./REPORT.md:481:Challenge commit `d9d29d505e2840c0028d7a91a2a8ba59e163b9a4` added 44 JSONL files associated with the live ciphertext; follow-up `019380c97543620091409b0fbf73a8a773a9a0da` clarified that recovering `S` is an additional cryptanalysis target, while the bounty condition remains plaintext/wallet recovery.
+./REPORT.md:506:1. Recovering `S` alone does not recover the independent 256-bit `prf_k`, the secret Toeplitz streams, the other PRF domains, or the complete `R=r1*r2*r3`; it does not directly decrypt `secret.ct`.
+./REPORT.md:522:Planted inversion and global-parity controls were detected. The artifact topology remains analyst-imposed and unlabeled; the null result is neither a proof against every possible “Möbius” construction nor evidence of intrinsic ciphertext geometry. It supplies no plaintext, PRF-key, or LPN-secret recovery path.
+./REPORT.md:549:    - v1 candidate-guess oracle regression
+./REPORT.md:558:No public-only plaintext recovery attack was found for OCTRA HFHE Challenge v2 at the assessed commits.
