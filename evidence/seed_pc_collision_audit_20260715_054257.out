@@ -1,0 +1,16 @@
+# seed/PC/edge collision audit 2026-07-15T05:43:12.035897+00:00
+ct_sha256 5da7f82724838bf7a8c4fe95fbf6d573b621c04c9b2f7ae849545cf60223fbab bytes 1963107
+cipher_count 22
+slots_unique [1] layer_count_hist Counter({2: 22}) edge_count_hist_top [(67, 2), (80, 2), (43, 1), (47, 1), (54, 1), (56, 1), (57, 1), (68, 1), (72, 1), (84, 1), (94, 1), (92, 1), (96, 1), (95, 1), (108, 1), (105, 1), (109, 1), (116, 1), (120, 1), (119, 1)]
+base_seed_count 44 unique_seed_count 44
+seed_collision_groups []
+zero_seed_components {'ztag0': 0, 'lo0': 0, 'hi0': 0, 'full_zero': 0}
+min_nonce_hamming_distance 48 pair_cipher_layer ((6, 0), (18, 0), 48)
+pc_count 44 unique_pc_count 44 pc_duplicate_groups 0
+zero_pc_count 0
+pc_per_layer_hist Counter({1: 44})
+edge_total 1829 edge_key_duplicate_groups 541
+edge_s_hash_duplicate_groups 0
+edge_s_weight_min_max_avg 3933 4236 4088.65
+edge_s_lowest10 [('e619b21ce32ef6817b21a2e42b79ec773b894a9d58a5c08c56ec81b64d74c66c', 10, 52, 8192, 3933), ('821767983bcf804e360d285f88a819566ffe82bcc9497907d1ab375bb643479b', 20, 88, 8192, 3951), ('70fa40a34dc1431d90ac70537dbae891472eaf2a51be0eb61b8975014d8f8934', 17, 29, 8192, 3952), ('003a7c77a9c68f425d4332b9f0e7411dc527539201263601ee01ef954ce66399', 9, 16, 8192, 3959), ('8eb7e74b12c8d033fa8aba8f83051f594b6416b743b81ec2ac30bac3db7cc426', 20, 43, 8192, 3961), ('1b2bdd9b06846d1816a86a42ff6570fa1cd3a348252b9b76786edda22228ed0e', 6, 27, 8192, 3962), ('94324616853f3cbea4647a58b608db10ac1d7f8c6872eff40611f2ed64521a4c', 4, 8, 8192, 3963), ('3e99d25ae4e3089f3ee5305ab49b75e0521697f661bf5b867c4623bf15fc90ed', 9, 45, 8192, 3963), ('5a5922000b50e96013d4b941a4c1eca28bc68a5047003c698c884b60b4209e28', 21, 52, 8192, 3963), ('3dacc9ae36612d3ca1f407a30ffd4248e550d5615d5a758d25deb0f451be4774', 10, 79, 8192, 3964)]
+assessment=no repeated RSeed/PC/opening-shaped duplicate or zero commitment leak detected; edge bitvec weights are nonzero and no duplicate s hashes
