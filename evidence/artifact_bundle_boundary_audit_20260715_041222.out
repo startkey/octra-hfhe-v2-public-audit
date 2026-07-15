@@ -1,0 +1,37 @@
+# artifact bundle boundary audit 2026-07-15T04:12:37.566666+00:00
+secret.ct bytes 1963107 sha256 5da7f82724838bf7a8c4fe95fbf6d573b621c04c9b2f7ae849545cf60223fbab
+pk.bin bytes 3042901 sha256 1e788edff9dea19a782defae053f3757ccf5edd41cd3e24ae44e1496045e9410
+ct_magic_ok True magic b'OCTRA-HFHE-BTY02'
+count_le 22 count_be 1585267068834414592
+cipher[00] offset=32 len_le=46237 len_be=11363707759762604032 header=505641430300 pvac_cipher_header=True
+cipher[01] offset=46277 len_le=50521 len_be=6468576439787585536 header=505641430300 pvac_cipher_header=True
+cipher[02] offset=96806 len_le=58018 len_be=11736943578880933888 header=505641430300 pvac_cipher_header=True
+cipher[03] offset=154832 len_le=60160 len_be=66146619527004160 header=505641430300 pvac_cipher_header=True
+cipher[04] offset=215000 len_le=61231 len_be=3453979439216459776 header=505641430300 pvac_cipher_header=True
+cipher[05] offset=276239 len_le=71941 len_be=367325944119033856 header=505641430300 pvac_cipher_header=True
+cipher[06] offset=348188 len_le=73012 len_be=3755158763808489472 header=505641430300 pvac_cipher_header=True
+cipher[07] offset=421208 len_le=77296 len_be=17306490042566311936 header=505641430300 pvac_cipher_header=True
+cipher[08] offset=498512 len_le=71941 len_be=367325944119033856 header=505641430300 pvac_cipher_header=True
+cipher[09] offset=570461 len_le=85864 len_be=7516227402616274944 header=505641430300 pvac_cipher_header=True
+cipher[10] offset=656333 len_le=85864 len_be=7516227402616274944 header=505641430300 pvac_cipher_header=True
+cipher[11] offset=742205 len_le=90148 len_be=2621096082641256448 header=505641430300 pvac_cipher_header=True
+cipher[12] offset=832361 len_le=100858 len_be=18052961680802971648 header=505641430300 pvac_cipher_header=True
+cipher[13] offset=933227 len_le=98716 len_be=11277296041424060416 header=505641430300 pvac_cipher_header=True
+cipher[14] offset=1031951 len_le=103000 len_be=6382164721449041920 header=505641430300 pvac_cipher_header=True
+cipher[15] offset=1134959 len_le=101929 len_be=2994331901759586304 header=505641430300 pvac_cipher_header=True
+cipher[16] offset=1236896 len_le=115852 len_be=10143233360256827392 header=505641430300 pvac_cipher_header=True
+cipher[17] offset=1352756 len_le=112639 len_be=18426197499921301504 header=505641430300 pvac_cipher_header=True
+cipher[18] offset=1465403 len_le=116923 len_be=13531066179946283008 header=505641430300 pvac_cipher_header=True
+cipher[19] offset=1582334 len_le=124420 len_be=352970720306790400 header=505641430300 pvac_cipher_header=True
+cipher[20] offset=1706762 len_le=128704 len_be=13904301999064612864 header=505641430300 pvac_cipher_header=True
+cipher[21] offset=1835474 len_le=127633 len_be=10516469179375157248 header=505641430300 pvac_cipher_header=True
+boundary_valid True final_pos 1963107 file_size 1963107 trailing 0
+cipher_count 22 unique_lengths 20 min_len 46237 max_len 128704 sum_len 1962907
+length_hist_top [(71941, 2), (85864, 2), (46237, 1), (50521, 1), (58018, 1), (60160, 1), (61231, 1), (73012, 1), (77296, 1), (90148, 1)]
+header_hist [('505641430300', 22)]
+sig 4f435452412d484648452d4254593032 count 1 first [0] undeclared_first [0]
+sig 505641430300 count 22 first [32, 46277, 96806, 154832, 215000, 276239, 348188, 421208, 498512, 570461] undeclared_first []
+sig 505641430301 count 0 first [] undeclared_first []
+sig 505641430302 count 0 first [] undeclared_first []
+ct entropy_bits_per_byte 7.9517 ascii_runs>=24 0 sample []
+pk entropy_bits_per_byte 7.9999 ascii_runs>=24 0 sample []

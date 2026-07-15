@@ -1,0 +1,66 @@
+# tomismeta/octra-sqlite marker scan 20260715_041222
+8d66acb6e64a444b214e84125c4dfae54b737d19
+--- file count
+     125
+--- path marker hits
+./src/private_file.rs
+./src/client/wallet.rs
+--- content marker hits
+./CHANGELOG.md:164:  plaintext wallet JSON, paste a private key through a hidden terminal prompt,
+./CHANGELOG.md:295:- Verified supplied public keys match the private key and tightened supported
+./docs/json-output.md:313:metadata, and rollback guard. The JSON output never includes private keys or
+./docs/json-output.md:380:does not print private keys or raw wallet JSON.
+./docs/json-output.md:383:and derived Octra address. They do not print private keys, signatures, or raw
+./docs/public-surface.md:38:attach an existing plaintext wallet JSON, paste a private key into a masked
+./docs/public-surface.md:92:localhost signing or private key export.
+./docs/headless.md:19:the private key.
+./docs/headless.md:21:Attach an existing plaintext wallet JSON:
+./docs/headless.md:32:Or import a private key without putting it in shell history:
+./docs/headless.md:157:query responses. They do not include private keys, but store them like sensitive
+./docs/headless.md:160:Normal command output and JSON do not print private keys or raw wallet JSON.
+./docs/octra-questions.md:116:The current key routes appear to control HFHE/sealed-data key lifecycle:
+./docs/octra-questions.md:129:client-side HFHE authorization helper is used by FHE/sealed-resource routes, not
+./README.md:140:from [wallet.octra.org](https://wallet.octra.org/), an existing plaintext
+./README.md:141:wallet JSON, or a private key pasted/imported through the CLI. WebCLI `.oct`
+./README.md:143:official `wallet.json`, attach plaintext wallet JSON, or import the private key.
+./README.md:261:| `octra-sqlite wallet attach PATH` | Make an existing plaintext wallet JSON the active wallet. |
+./README.md:262:| `octra-sqlite wallet import PATH\|--stdin` | Normalize a plaintext wallet JSON or stdin private key into a local wallet JSON. |
+./RELEASE.md:290:  data only. It does not contain private keys or raw wallet JSON.
+./RELEASE.md:354:- Normal command output and JSON do not print private keys or raw wallet JSON.
+./RELEASE.md:377:  private keys.
+./CONTRIBUTING.md:82:Do not include private keys, wallet files, passphrases, RPC credentials, or
+./.github/ISSUE_TEMPLATE/alpha-feedback.yml:12:        - label: I did not include wallet private keys, seed phrases, or production data.
+./vendor/sqlite/3.53.3/sqlite3.c:19336:** These used to have mnemonic name like 'i' for SQLITE_AFF_INTEGER and
+./vendor/sqlite/3.53.3/sqlite3.c:131748:**       JT_LTORJ (mnemonic: Left Table Of Right Join) so that the
+./vendor/sqlite/3.53.3/sqlite3.c:147303:  ** literal argument to this pragma that contains a mnemonic description
+./vendor/sqlite/3.53.2/sqlite3.c:19327:** These used to have mnemonic name like 'i' for SQLITE_AFF_INTEGER and
+./vendor/sqlite/3.53.2/sqlite3.c:131617:**       JT_LTORJ (mnemonic: Left Table Of Right Join) so that the
+./vendor/sqlite/3.53.2/sqlite3.c:147172:  ** literal argument to this pragma that contains a mnemonic description
+./SECURITY.md:23:Never commit wallet JSON, private keys, seed phrases, `.env` files, or generated
+./src/cli/mod.rs:218:    /// Point config at an existing plaintext wallet JSON file.
+./src/cli/mod.rs:220:    /// Import a private key into a normalized wallet JSON file.
+./src/cli/mod.rs:550:    /// Existing plaintext wallet JSON path.
+./src/cli/mod.rs:560:    /// Plain wallet JSON to normalize, or omit with --stdin to read a private key.
+./src/cli/mod.rs:563:    /// Read a private key from stdin.
+./src/cli/mod.rs:1745:    print_choice(3, "Paste private key securely");
+./src/cli/mod.rs:1812:        "wallet.json with address and private key material",
+./src/cli/mod.rs:1822:    print_section("Paste private key");
+./src/cli/mod.rs:1832:    let mut private_key = read_tty_secret("private key")?;
+./src/cli/mod.rs:1889:            read_stdin_secret("wallet import --stdin requires a private key on stdin")?;
+./src/cli/mod.rs:1898:        bail!("wallet import requires a plaintext wallet PATH or --stdin");
+./src/cli/mod.rs:2013:            "webcli .oct wallets are encrypted and need PIN-based decryption; export/import the private key with `octra-sqlite wallet import --stdin` or attach a plaintext wallet JSON"
+./src/cli/mod.rs:2058:        .context("reading private key from terminal")
+./src/cli/mod.rs:4445:                "purpose": "make an existing plaintext wallet JSON the active wallet",
+./src/cli/mod.rs:4452:                "purpose": "normalize a plaintext wallet JSON or stdin private key into a local wallet JSON",
+./src/client/session.rs:24:/// contain private key material.
+./src/client/session.rs:39:    /// Inline private key material. Prefer `wallet` outside controlled tests.
+./src/client/session.rs:41:    /// Optional public key material used to verify the private key.
+./src/client/session.rs:179:                "wallet private key is required for signed Octra operations",
+./src/client/session.rs:334:                "wallet private key is required; pass --wallet or OCTRA_PRIVATE_KEY_B64",
+./src/client/session.rs:523:                .contains("wallet public key does not match private key")
+./src/client/wallet.rs:146:                "wallet address {} does not match private key-derived address {}",
+./src/client/wallet.rs:175:        .ok_or_else(|| Error::with_kind(ErrorKind::Wallet, "private key must be base64 or hex"))?;
+./src/client/wallet.rs:180:            "private key must decode to a 32-byte seed or 64-byte keypair",
+./src/client/wallet.rs:191:            "64-byte private key public half does not match seed",
+./src/client/wallet.rs:214:            "wallet public key does not match private key",
+./src/client/wallet.rs:326:            "mnemonic": ["abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "about"],

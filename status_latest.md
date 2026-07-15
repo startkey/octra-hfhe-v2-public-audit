@@ -1,22 +1,29 @@
-# HFHE Challenge v2 heartbeat status 20260715_034426 UTC
+# HFHE Challenge v2 heartbeat status 20260715_041222 UTC
 
 ## Current result
 - Plaintext/private key: **not recovered**.
-- Target account refresh (`monitor_once_20260715_034426.out`): balance `500001.000001`, nonce `0`, has_public_key `false`, tx_count `5`; recent tx hashes unchanged.
-- Git ref refresh (`git_lsremote_refresh_20260715_034426.out`): upstream `octra-labs/hfhe-challenge` remains at `019380c97543620091409b0fbf73a8a773a9a0da` on `main` with tag `v2_fix = 08bf879dd9e9aff094e4106ee5d86dde9de12742`; selected active forks unchanged.
-- Public X/DuckDuckGo refresh (`twitter_public_search_refresh_20260715_034426.out`): no unique candidate X URLs surfaced for solved/private-key/LPN/sample/account queries.
+- Target account refresh (`monitor_once_20260715_041222.out`): balance `500001.000001`, nonce `0`, has_public_key `false`, tx_count `5`; recent tx hashes unchanged.
+- Git ref refresh (`git_lsremote_refresh_20260715_041222.out`): upstream `octra-labs/hfhe-challenge` unchanged at `019380c97543620091409b0fbf73a8a773a9a0da`; selected active forks unchanged. `tomismeta/octra-sqlite` was also checked as a user-supplied reference repo.
+- Public X/DuckDuckGo refresh (`twitter_public_search_refresh_20260715_041222.out`): no unique candidate X URLs surfaced.
 
 ## Work performed this heartbeat
-1. Inspected latest carried-over outputs from `20260715_034200`: chain state unchanged; GitHub HTML PR/issue listing showed only existing PRs #1-#4; X search had no candidate URLs.
-2. Performed a new GitHub HTML marker-context audit (`github_html_marker_context_20260715_034355.out`) on PRs/issues #1-#4 for `private key`, `plaintext`, `prf_k`, `PRF_R2`, `PRF_R3`, `master_seed`, `mnemonic`, `opening`, `secret.ct`, `solved`, `recovered`, and the target account.
-3. Result of marker-context audit: hits are negative report text, generic GitHub UI wording, PR titles/commit titles, or the known `secret.ct` rename PR. No actual plaintext, wallet private key, seed, PC opening, PRF_R2/PRF_R3, Toeplitz stream, or useful artifact link appeared.
-4. Refreshed selected forks via `git ls-remote`: Eienel, ifeoluwaaj, and nxpath heads remain known; no new branch/tag with secret-bearing material.
+1. Re-read `status_latest.md`, `monitor_state.json`, and latest logs.
+2. Refreshed target wallet through `hfhe_monitor_once.py`: no balance/nonce/public-key/tx change.
+3. Refreshed selected Git refs with `git ls-remote`, including official repo, Eienel, ifeoluwaaj, nxpath, and `tomismeta/octra-sqlite`.
+4. Ran `tomismeta_marker_scan_20260715_041222.out`: the repo contains general Octra wallet CLI/private-key handling docs/code, but no `HFHE`, `secret.ct`, `pk.bin`, target address, `PRF_R2`, `PRF_R3`, `prf_k`, `master_seed`, or v2 plaintext artifact.
+5. Ran a new artifact bundle boundary/endian audit (`artifact_bundle_boundary_audit_20260715_041222.out`) on local `secret.ct`/`pk.bin`:
+   - `secret.ct` magic is exactly `OCTRA-HFHE-BTY02`.
+   - Little-endian cipher count is `22`; big-endian interpretation is nonsensical.
+   - All 22 declared cipher blobs start at declared boundaries with `PVAC 03 00` cipher headers.
+   - Final offset equals file size; trailing bytes `0`.
+   - No undeclared extra `OCTRA-HFHE-BTY02` or `PVAC 03 00/01/02` blocks found.
+   - No long printable ASCII pockets detected in `secret.ct` or `pk.bin`.
 
 ## Current blocker
-Unchanged: public challenge material exposes only `pvac.prf.r.1` LPN side samples. Decryption still requires full per-layer `R = PRF_R1 * PRF_R2 * PRF_R3`, or equivalent secret-derived material (`prf_k`, Toeplitz stream, PC openings, plaintext, or target private key). Current public artifacts and public claims do not provide those values.
+Unchanged: public challenge material exposes only `pvac.prf.r.1` LPN side samples. The new boundary/endian audit rules out a simple hidden-appended-artifact, alternate-endian count/length trick, or plaintext ASCII pocket in the published binary files. Decryption still requires missing secret-derived material: `PRF_R2`, `PRF_R3`, `prf_k`, Toeplitz stream, PC openings, plaintext, or target private key.
 
 ## GitHub publishing note
 Sanitized progress repo remains published at https://github.com/startkey/octra-hfhe-v2-public-audit . Token is not stored in the git remote.
 
 ## Next
-Continue monitoring for non-official artifact links, new fork refs, credible validated payload/private-key disclosures, or hidden-layer PRF/Toeplitz/PC-opening leaks. Reduce priority on generic "plaintext recovery tool" titles unless they include a verifiable candidate artifact.
+Continue monitoring for non-official artifact links, new fork refs/branches/tags, credible validated payload/private-key disclosures, or hidden-layer PRF/Toeplitz/PC-opening leaks.
