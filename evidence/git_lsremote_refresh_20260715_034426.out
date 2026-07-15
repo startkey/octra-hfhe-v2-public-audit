@@ -1,0 +1,21 @@
+# git ls-remote refresh 20260715_034426 UTC
+
+## https://github.com/octra-labs/hfhe-challenge.git
+019380c97543620091409b0fbf73a8a773a9a0da refs/heads/main
+08bf879dd9e9aff094e4106ee5d86dde9de12742 refs/tags/v2_fix
+
+## https://github.com/Eienel/hfhe-challenge-eienel.git
+93ff858fb9471d0252cc76092c681daa9f6a1879 refs/heads/claude/hfhe-challenge-v2-8bntzl
+c2897e67bbd511ac50606ec3157b0b7a1adadf81 refs/heads/claude/hfhe-challenge-progress-b6ld5x
+efb24174ac4c24c723b6c5bd99d289f89cf141c6 refs/heads/main
+
+## https://github.com/ifeoluwaaj/hfhe-challenge.git
+08bf879dd9e9aff094e4106ee5d86dde9de12742 refs/tags/v2_fix
+0d08e9622921e5930175a660df0061a65548972f refs/heads/main
+ffed46e744bb17871120fbc7e27102c92896567f refs/heads/hfhe-v2-cryptanalysis
+
+## https://github.com/nxpath/hfhe-challenge.git
+8a8df807bc12858a3076eb2d026f5d0ed1f2eceb refs/heads/main
+
+## https://github.com/startkey/octra-hfhe-v2-public-audit.git
+368313659681716bcd0efde7d0f7b1d5d92d3b68 refs/heads/master

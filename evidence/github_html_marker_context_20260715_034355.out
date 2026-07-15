@@ -1,0 +1,43 @@
+# GitHub HTML marker context fallback 2026-07-15T03:43:55.320766+00:00
+
+## https://github.com/octra-labs/hfhe-challenge/pull/4
+bytes 270432 text_chars 5755
+MARKER 'plaintext' CTX: tion provided. --> Sorry, something went wrong. Uh oh! There was an error while loading. Please reload this page . --> All reactions nxpath added 3 commits July 10, 2026 17:18 Add plaintext recovery tools and analysis framework for HFHE challeng… … 8a8df80 …e v2 refactor: create robust utility library for tools 6206310 refactor: enhance tools with robust error handling and logging 3cdab33 nxpath closed thi
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/pull/3
+bytes 294023 text_chars 10466
+MARKER 'plaintext' CTX: Loading Uh oh! There was an error while loading. Please reload this page . Copy link Copy Markdown HFHE v2 Cryptanalysis — Exhaustive Attack Report Status: UNDEFEATED — No path to plaintext recovery found with current public techniques. Summary 40+ attack tests across every known category. Found & fixed critical S-box CNF bug. All LPN approaches hit 50% wall. Independent smoke-ui assessment also negative. 
+MARKER 'prf_k' CTX:  → 8 per value). Fixed & verified with FIPS-197. CryptoMiniSat: 29K vars, 1.1M clauses, 69 min, no convergence. AES-256 beyond SAT capability. Key Insight: TWO independent secrets prf_k (256-bit) → needed for R computation lpn_s_bits (4096-bit) → needed for LPN Solving LPN gives s but NOT prf_k. Recovering prf_k requires breaking AES-256/SHA-256. Wrapped encoding makes plaintext recovery information-th
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/pull/2
+bytes 284404 text_chars 6684
+MARKER 'plaintext' CTX: e… … 0894078 …-verification impossibility Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com> Claude-Session: https://claude.ai/code/session_01GgRpyi9QAaSikrp6SgkDNs Add known-plaintext distinguisher experiment (null result) and final-… … 5008dbf …commit analysis Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com> Claude-Session: https://claude.ai/code/session_01GgRpyi9QAaSikrp6SgkDNs Add LPN attac
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/pull/1
+bytes 254145 text_chars 5341
+MARKER 'secret.ct' CTX:  Rename secret.ct to Love.ct by TonyLegend-77 · Pull Request #1 · octra-labs/hfhe-challenge · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/issues/4
+bytes 270432 text_chars 5755
+MARKER 'plaintext' CTX: tion provided. --> Sorry, something went wrong. Uh oh! There was an error while loading. Please reload this page . --> All reactions nxpath added 3 commits July 10, 2026 17:18 Add plaintext recovery tools and analysis framework for HFHE challeng… … 8a8df80 …e v2 refactor: create robust utility library for tools 6206310 refactor: enhance tools with robust error handling and logging 3cdab33 nxpath closed thi
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/issues/3
+bytes 294023 text_chars 10466
+MARKER 'plaintext' CTX: Loading Uh oh! There was an error while loading. Please reload this page . Copy link Copy Markdown HFHE v2 Cryptanalysis — Exhaustive Attack Report Status: UNDEFEATED — No path to plaintext recovery found with current public techniques. Summary 40+ attack tests across every known category. Found & fixed critical S-box CNF bug. All LPN approaches hit 50% wall. Independent smoke-ui assessment also negative. 
+MARKER 'prf_k' CTX:  → 8 per value). Fixed & verified with FIPS-197. CryptoMiniSat: 29K vars, 1.1M clauses, 69 min, no convergence. AES-256 beyond SAT capability. Key Insight: TWO independent secrets prf_k (256-bit) → needed for R computation lpn_s_bits (4096-bit) → needed for LPN Solving LPN gives s but NOT prf_k. Recovering prf_k requires breaking AES-256/SHA-256. Wrapped encoding makes plaintext recovery information-th
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/issues/2
+bytes 284398 text_chars 6684
+MARKER 'plaintext' CTX: e… … 0894078 …-verification impossibility Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com> Claude-Session: https://claude.ai/code/session_01GgRpyi9QAaSikrp6SgkDNs Add known-plaintext distinguisher experiment (null result) and final-… … 5008dbf …commit analysis Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com> Claude-Session: https://claude.ai/code/session_01GgRpyi9QAaSikrp6SgkDNs Add LPN attac
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
+
+## https://github.com/octra-labs/hfhe-challenge/issues/1
+bytes 254145 text_chars 5341
+MARKER 'secret.ct' CTX:  Rename secret.ct to Love.ct by TonyLegend-77 · Pull Request #1 · octra-labs/hfhe-challenge · GitHub Skip to content Navigation Menu Toggle navigation Sign in Appearance settings Platform AI CODE CREATION GitHub Copilot Write better code
+MARKER 'solved' CTX: pported. You must change the existing code in this line in order to create a valid suggestion. Outdated suggestions cannot be applied. This suggestion has been applied or marked resolved. Suggestions cannot be applied from pending reviews. Suggestions cannot be applied on multi-line comments. Suggestions cannot be applied while the pull request is queued to merge. Suggestion cannot be applied right now.
